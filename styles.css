@@ -1,0 +1,16 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: #007bff;
+}
+
+footer {
+    background-color: #343a40;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}

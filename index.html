@@ -44,25 +44,39 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">COURSES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">PAID COUNSELLING</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ADMISSION NEWS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
-                    </li>
-                </ul>
-            </div>
+           <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="#">HOME</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                COURSES
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
+                <li><a class="dropdown-item" href="#">Course 1</a></li>
+                <li><a class="dropdown-item" href="#">Course 2</a></li>
+                <li><a class="dropdown-item" href="#">Course 3</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="counselingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                PAID COUNSELLING
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="counselingDropdown">
+                <li><a class="dropdown-item" href="#">Counseling Option 1</a></li>
+                <li><a class="dropdown-item" href="#">Counseling Option 2</a></li>
+                <li><a class="dropdown-item" href="#">Counseling Option 3</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">ADMISSION NEWS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">CONTACT US</a>
+        </li>
+    </ul>
+</div>
         </div>
     </nav>
 

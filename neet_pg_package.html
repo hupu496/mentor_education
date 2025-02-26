@@ -6,6 +6,7 @@
     <title>Mentor Education</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .navbar-dark {
             background-color: #2b0a02;
@@ -20,6 +21,117 @@
         }
         .article-card:hover {
             transform: translateY(-5px);
+        }
+        .brand-name {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-link {
+            color: white !important;
+        }
+        
+        .pricing-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-header {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 10px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            margin-right: 10px;
+            color: #0d6efd;
+        }
+        
+        .info-box {
+            background-color: #fff3e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+           .nav-link {
+            color: white !important;
+        }
+        
+        .nav-link.active {
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+
+        .post-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .search-box {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .recent-posts {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .recent-posts ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .recent-posts li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .recent-posts li:last-child {
+            border-bottom: none;
+        }
+
+        .post-thumbnail {
+            max-width: 200px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .main-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -46,10 +158,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">HOME</a>
-                       
-
+                     <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home"></i> HOME</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,17 +190,67 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ADMISSION NEWS</a>
+                        <a class="nav-link" href="admission_news.html">ADMISSION NEWS</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
+                   <li class="nav-item">
+                        <a class="nav-link" href="contact.html">CONTACT US</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container my-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">NEET PG Packages</li>
+            </ol>
+        </nav>
 
+        <h2 class="text-center mb-4">WHY YOU NEED 'PAID COUNSELLING' SERVICES ?</h2>
+
+        <div class="info-box mb-5">
+            <p class="mb-3">
+                <strong>NEET PG counselling</strong> is a complex procedure. A lot of information available for free on websites, YouTube, Instagram, and other platforms. However, the authenticity of this information can be a major concern, as no one takes responsibility if the advice does not work out.
+            </p>
+            <p class="mb-3">
+                If you have the time and are willing to navigate through various free resources, then you may not need Career Edwise's paid counselling services.
+            </p>
+            <p class="mb-0">
+                However, if you lack the time to explore multiple sources and want authentic, comprehensive, and data-driven information about medical colleges, counselling processes, and category-specific details like fees and cut-offs, subscribing to our paid services could be a valuable investment for you.
+            </p>
+        </div>
+
+        <h3 class="text-center mb-4">NEET PG 2024 STATE/ ALL INDIA (MD/MS) COUNSELLING PACKAGES FOR DEEMED & PRIVATE INSTITUTES ONLY</h3>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="pricing-card">
+                    <div class="pricing-header bg-light">
+                        <h4>STANDARD PLAN</h4>
+                        <div class="price">₹25000</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li>RANK AND CUT OFF ANALYSIS BY OUR COUNSELLOR</li>
+                        <li>24*7 ALERT FOR COUNSELLING NOTIFICATION</li>
+                        <li>DEDICATED PERSONAL COUNSELLOR</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="pricing-card">
+                    <div class="pricing-header bg-primary text-white">
+                        <h4>PREMIUM PLAN</h4>
+                        <div class="price text-white">₹100000</div>
+                    </div>
+                    <ul class="feature-list">
+                        <li>ALL THE BENEFITS INCLUDED IN STANDARD PLAN</li>
+                        <li>COUNSELLING BY OUR CHIEF COUNSELLOR (UNLIMITED SESSION)</li>
+                        <li>DOCUMENTATION SUPPORT FOR COUNSELLING</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>

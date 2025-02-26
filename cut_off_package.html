@@ -6,6 +6,7 @@
     <title>Mentor Education</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .navbar-dark {
             background-color: #2b0a02;
@@ -20,6 +21,148 @@
         }
         .article-card:hover {
             transform: translateY(-5px);
+        }
+          .nav-link {
+            color: white !important;
+        }
+        
+        .nav-link.active {
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+
+        .post-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .search-box {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .recent-posts {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .recent-posts ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .recent-posts li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .recent-posts li:last-child {
+            border-bottom: none;
+        }
+
+        .post-thumbnail {
+            max-width: 200px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .main-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        
+        .package-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .package-item {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .package-header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .rupee-symbol {
+            font-size: 1.2rem;
+            vertical-align: super;
+        }
+        
+        .feature-list {
+            text-align: left;
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+        }
+        
+        .enquire-btn {
+            background-color: var(--primary-blue);
+            border: none;
+            padding: 8px 25px;
+        }
+        
+        .enquire-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: var(--primary-blue);
+            padding: 20px;
+            color: white;
+        }
+        
+        .enquire-form h3 {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -46,10 +189,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">HOME</a>
-                       
-
+                     <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home"></i> HOME</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,10 +221,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ADMISSION NEWS</a>
+                        <a class="nav-link" href="admission_news.html">ADMISSION NEWS</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
+                   <li class="nav-item">
+                        <a class="nav-link" href="contact.html">CONTACT US</a>
                     </li>
                 </ul>
             </div>
@@ -95,74 +236,83 @@
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">CUT OFF PACKAGE</li>
             </ol>
         </nav>
 
-        <!-- Cut Off Heading -->
-        <h1 class="text-center mb-5">CUT OFF</h1>
+        <h2 class="text-center mb-4">CUT OFF PACKAGES</h2>
 
-        <!-- Pricing Cards -->
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <!-- NEET PG Card -->
-            <div class="col">
-                <div class="card package-card">
-                    <div class="package-header">
-                        FOR NEET PG (MD, MS)
-                    </div>
-                    <div class="card-body text-center">
-                        <div class="price mb-4">
-                            <span class="rupee">₹</span>999
-                        </div>
-                        <ul class="feature-list text-start mb-4">
-                            <li>Cut off Details of Single College (All Departments, All Rounds, All Category Cut off)</li>
-                            <li>Quick Delivery (PDF File)</li>
-                        </ul>
-                        <button class="btn btn-primary enquire-btn">Enquire Now</button>
-                    </div>
+        <!-- Packages Container -->
+        <div class="package-container">
+            <!-- NEET PG Package -->
+            <div class="package-item">
+                <div class="package-header">
+                    FOR NEET PG (MD, MS)
                 </div>
+                <div class="price">
+                    <span class="rupee-symbol">₹</span>999
+                </div>
+                <ul class="feature-list">
+                    <li>Cut off Details of Single College (All Departments, All Rounds, All Category Cut off)</li>
+                    <li>Quick Delivery (PDF File)</li>
+                </ul>
+                <button class="btn btn-primary enquire-btn">Enquire Now</button>
             </div>
 
-            <!-- NEET UG MBBS Card -->
-            <div class="col">
-                <div class="card package-card">
-                    <div class="package-header">
-                        FOR NEET UG (MBBS)
-                    </div>
-                    <div class="card-body text-center">
-                        <div class="price mb-4">
-                            <span class="rupee">₹</span>499
-                        </div>
-                        <ul class="feature-list text-start mb-4">
-                            <li>Cut off Details of Single College (All Rounds, All category Cut off)</li>
-                            <li>Quick Delivery (PDF File)</li>
-                        </ul>
-                        <button class="btn btn-primary enquire-btn">Enquire Now</button>
-                    </div>
+            <!-- NEET UG MBBS Package -->
+            <div class="package-item">
+                <div class="package-header">
+                    FOR NEET UG (MBBS)
                 </div>
+                <div class="price">
+                    <span class="rupee-symbol">₹</span>499
+                </div>
+                <ul class="feature-list">
+                    <li>Cut off Details of Single College (All Rounds, All category Cut off)</li>
+                    <li>Quick Delivery (PDF File)</li>
+                </ul>
+                <button class="btn btn-primary enquire-btn">Enquire Now</button>
             </div>
 
-            <!-- NEET UG BAMS Card -->
-            <div class="col">
-                <div class="card package-card">
-                    <div class="package-header">
-                        FOR NEET UG (BAMS)
-                    </div>
-                    <div class="card-body text-center">
-                        <div class="price mb-4">
-                            <span class="rupee">₹</span>299
-                        </div>
-                        <ul class="feature-list text-start mb-4">
-                            <li>Cut off Details of Single College (All Rounds, All Category Cut off)</li>
-                            <li>Quick Delivery (PDF File)</li>
-                        </ul>
-                        <button class="btn btn-primary enquire-btn">Enquire Now</button>
-                    </div>
+            <!-- NEET UG BAMS Package -->
+            <div class="package-item">
+                <div class="package-header">
+                    FOR NEET UG (BAMS)
                 </div>
+                <div class="price">
+                    <span class="rupee-symbol">₹</span>299
+                </div>
+                <ul class="feature-list">
+                    <li>Cut off Details of Single College (All Rounds, All Category Cut off)</li>
+                    <li>Quick Delivery (PDF File)</li>
+                </ul>
+                <button class="btn btn-primary enquire-btn">Enquire Now</button>
             </div>
         </div>
+
+        <!-- Enquiry Form -->
+        <div class="enquire-form">
+            <h3>To Know Cut off(Open-Close Rank) Details Fill the Form</h3>
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Name">
+                </div>
+                <div class="mb-3">
+                    <input type="tel" class="form-control" placeholder="Enter your Mobile No">
+                </div>
+                <div class="mb-3">
+                    <select class="form-control">
+                        <option>Courses are you Looking For?</option>
+                        <option>NEET PG (MD, MS)</option>
+                        <option>NEET UG (MBBS)</option>
+                        <option>NEET UG (BAMS)</option>
+                    </select>
+                </div>
+            </form>
+        </div>
     </div>
+
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Automatically show dropdown on hover

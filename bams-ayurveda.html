@@ -9,8 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .navbar-dark {
-            background-color: #2b0a02;
-        }
+        background-color: black !important;
+    }
+    
+    .nav-link {
+        color: white !important;
+        font-weight: normal;
+    }
+    
+    .nav-link.active {
+        background-color: white !important;
+        color: blue !important;
+        font-weight: bold !important;
+    }
         .top-bar {
             background-color: #f8f9fa;
             padding: 5px 0;
@@ -22,14 +33,7 @@
         .article-card:hover {
             transform: translateY(-5px);
         }
-           .nav-link {
-            color: white !important;
-        }
         
-        .nav-link.active {
-            background-color: #fff !important;
-            color: #000 !important;
-        }
 
         .post-item {
             border-bottom: 1px solid #eee;
@@ -251,5 +255,20 @@
             });
         });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", function () {
+                // Remove active class from all nav-links
+                navLinks.forEach(nav => nav.classList.remove("active"));
+
+                // Add active class to the clicked link
+                this.classList.add("active");
+            });
+        });
+    });
+</script>
 </body>
 </html>

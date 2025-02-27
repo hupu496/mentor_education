@@ -7,6 +7,66 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+         
+        .contact-header {
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .office-details {
+            margin-bottom: 30px;
+        }
+        .office-icon {
+            margin-right: 10px;
+            color: #0d6efd;
+        }
+        .search-box {
+            margin-bottom: 30px;
+        }
+        .search-btn {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            width: 100%;
+        }
+        .recent-posts {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .recent-posts h4 {
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .recent-posts ul {
+            padding-left: 20px;
+        }
+        .recent-posts li {
+            margin-bottom: 10px;
+        }
+        .submit-btn {
+            background-color: #0d6efd;
+            color: white;
+            padding: 8px 20px;
+        }
+        .social-media {
+            margin-top: 20px;
+        }
+        .social-media a {
+            margin-right: 15px;
+            text-decoration: none;
+        }
+        .map-container {
+            height: 250px;
+            margin-top: 20px;
+        }
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 1px solid #dee2e6;
+        }
         .navbar-dark {
             background-color: #2b0a02;
         }
@@ -145,68 +205,172 @@
         </div>
     </nav>
 
+     <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Contact Us</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
     <div class="container my-4">
         <div class="row">
-            <!-- Main Content -->
+            <!-- Contact Information -->
             <div class="col-lg-8">
-                <div class="main-content">
-                    <h2 class="mb-4">Category: Admission News</h2>
-
-                    <!-- Post 1 -->
-                    <div class="post-item d-flex">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-25Wnr2C9zY9vcSjHWZmKn0w78HQV4i.png" alt="NMAT Exam" class="post-thumbnail">
-                        <div>
-                            <h3><a href="#" class="text-decoration-none">NMAT Exam 2024: Registration, Exam Date, Syllabus, Seats, Fees, Admission</a></h3>
-                            <div class="post-meta mb-2">
-                                <span><i class="far fa-user"></i> Career Edwise</span>
-                                <span class="ms-3"><i class="far fa-comments"></i> No Comments</span>
+                <h2 class="contact-header">Contact Us</h2>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="office-details">
+                            <h5>Our Details</h5>
+                            <h6>Pune Office Address</h6>
+                            <p>
+                                <i class="fas fa-map-marker-alt office-icon"></i>
+                                Office No. 106, 1st Floor, Specialty Business Center, Balewadi, Baner, Pune, Maharashtra 411045
+                            </p>
+                            
+                            <h6>Madhya Pradesh office</h6>
+                            <p>
+                                <i class="fas fa-map-marker-alt office-icon"></i>
+                                Address: 1/7, MIG First Floor Amber Complex, M.P. Nagar Zone-2, Bhopal, Madhya Pradesh 462011
+                            </p>
+                            
+                            <p>
+                                <i class="fas fa-phone office-icon"></i>
+                                Phone: +91 9111777919
+                            </p>
+                            
+                            <p>
+                                <i class="fas fa-envelope office-icon"></i>
+                                Email: mail@careeredwise.com
+                            </p>
+                            
+                            <p>
+                                <i class="fas fa-globe office-icon"></i>
+                                Website: www.careeredwise.com
+                            </p>
+                            
+                            <div class="social-media">
+                                <h6>Follow Us On Social Media</h6>
+                                <a href="#"><i class="fab fa-instagram"></i> Follow on Instagram</a><br>
+                                <a href="#"><i class="fab fa-facebook"></i> Follow on Facebook</a><br>
+                                <a href="#"><i class="fab fa-quora"></i> Follow on Quora</a><br>
+                                <a href="#"><i class="fab fa-linkedin"></i> Follow on LinkedIn</a>
                             </div>
-                            <p>NMAT Exam 2024 By GMAC: Registration Started, Check Important Dates, Cutoff, Registration Fees, Eligibility Criteria Quick Summary of NMAT Exam 2024...</p>
-                            <a href="#" class="btn btn-primary btn-sm">Continue Reading...</a>
                         </div>
                     </div>
-
-                    <!-- Post 2 -->
-                    <div class="post-item d-flex">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-25Wnr2C9zY9vcSjHWZmKn0w78HQV4i.png" alt="AACCC Counselling" class="post-thumbnail">
-                        <div>
-                            <h3><a href="#" class="text-decoration-none">AACCC Ayush PG Counselling 2024: Get All Details Here</a></h3>
-                            <div class="post-meta mb-2">
-                                <span><i class="far fa-user"></i> Career Edwise</span>
-                                <span class="ms-3"><i class="far fa-comments"></i> No Comments</span>
-                            </div>
-                            <p>AACCC PG Counselling 2024 Schedule For BAMS Ayurveda PG Admission For All India Quota. First Round AACCC Ayush PG Counselling 2024...</p>
-                            <a href="#" class="btn btn-primary btn-sm">Continue Reading...</a>
+                    
+                    <div class="col-md-6">
+                        <div class="contact-form">
+                            <h5>For Further Queries</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name *</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="contact" class="form-label">Contact No *</label>
+                                    <input type="text" class="form-control" id="contact" placeholder="Enter your contact no">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your Email Address">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Enter your Query Here!"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn submit-btn">
+                                    <i class="fas fa-paper-plane"></i> SUBMIT
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Maps -->
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="map-container">
+                            <img src="https://via.placeholder.com/600x300?text=Pune+Office+Map" alt="Pune Office Map">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="map-container">
+                            <img src="https://via.placeholder.com/600x300?text=Bhopal+Office+Map" alt="Bhopal Office Map">
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Sidebar -->
             <div class="col-lg-4">
-                <!-- Search Box -->
                 <div class="search-box">
-                    <form>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search the site">
-                            <button class="btn btn-primary" type="submit">Search</button>
-                        </div>
-                    </form>
+                    <input type="text" class="form-control mb-2" placeholder="Search the site...">
+                    <button class="btn search-btn">Search</button>
                 </div>
-
-                <!-- Recent Posts -->
+                
                 <div class="recent-posts">
-                    <h4 class="mb-3">RECENT POSTS</h4>
+                    <h4>RECENT POSTS</h4>
                     <ul>
-                        <li><a href="#" class="text-decoration-none">NMIMS Indore MBA Fees, NMAT Cut off, Placement, Package, Admission 2024</a></li>
-                        <li><a href="#" class="text-decoration-none">NMAT Exam 2024: Registration, Exam Date, Syllabus, Seats, Fees, Admission</a></li>
-                        <li><a href="#" class="text-decoration-none">KJ Somaiya Institute of Management Cut off, MBA Fees, Package, Admission 2025</a></li>
-                        <li><a href="#" class="text-decoration-none">JIET Medical College, Jodhpur Cut off MBBS Fees, Admission 2024</a></li>
+                        <li>
+                            <a href="#">NMIMS Indore MBA Fees, NMAT Cut off, Placement, Package, Admission 2024</a>
+                        </li>
+                        <li>
+                            <a href="#">NMAT Exam 2024: Registration, Exam Date, Syllabus, Seats, Fees, Admission</a>
+                        </li>
+                        <li>
+                            <a href="#">KJ Somaiya Institute of Management Cut off, MBA Fees, Package, Admission 2025</a>
+                        </li>
+                        <li>
+                            <a href="#">JET Medical College, Jodhpur Cut off, MBBS Fees, Admission 2024</a>
+                        </li>
+                        <li>
+                            <a href="#">AACCC Ayush PG Counselling 2024: Get All Details Here</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>CAREER EDWISE</h5>
+                    <p>Your trusted partner for educational counseling and admission guidance.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="#" class="text-white">Courses</a></li>
+                        <li><a href="#" class="text-white">Counselling</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <p>Phone: +91 9111777919<br>
+                    Email: mail@careeredwise.com</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2024 CAREER EDWISE. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>

@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .navbar-dark {
-            background-color: #2b0a02;
-        }
+        background-color: black !important;
+    }
+    
         .top-bar {
             background-color: #f8f9fa;
             padding: 5px 0;
@@ -22,14 +23,16 @@
         .article-card:hover {
             transform: translateY(-5px);
         }
-         .nav-link {
-            color: white !important;
-        }
-        
-        .nav-link.active {
-            background-color: #fff !important;
-            color: #000 !important;
-        }
+        .nav-link {
+        color: white !important;
+        font-weight: normal;
+    }
+    
+    .nav-link.active {
+        background-color: white !important;
+        color: blue !important;
+        font-weight: bold !important;
+    }
 
         .post-item {
             border-bottom: 1px solid #eee;
@@ -163,7 +166,7 @@
                         <h5 class="card-title">NMIMS Indore MBA Fees, NMAT Cut off, Placement, Package, Admission 2024</h5>
                         <p class="card-text text-muted small">Posted by Career Edwise • No Comments</p>
                         <p class="card-text">Quick Summary of SVKM's Narsee Monjee Institute of Management Studies, Indore: NAME OF COLLEGE SVKM'S NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES, INDORE Generally Known As Narsee Monjee School of...</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
+                        <a href="blog_description.html" class="">Read More</a>
                     </div>
                 </div>
 
@@ -173,7 +176,7 @@
                         <h5 class="card-title">NMAT Exam 2024: Registration, Exam Date, Syllabus, Seats, Fees, Admission</h5>
                         <p class="card-text text-muted small">Posted by Career Edwise • No Comments</p>
                         <p class="card-text">NMAT Exam 2024 By GMAC: Registration Started, Check Important Dates, Cutoff, Registration Fees, Eligibility Criteria...</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
+                        <a href="blog_description.html" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
@@ -229,5 +232,20 @@
             });
         });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", function () {
+                // Remove active class from all nav-links
+                navLinks.forEach(nav => nav.classList.remove("active"));
+
+                // Add active class to the clicked link
+                this.classList.add("active");
+            });
+        });
+    });
+</script>
 </body>
 </html>

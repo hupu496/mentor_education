@@ -3,6 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"><!-- Core Meta Data -->
+        <meta content="ThemeWagon" name="author">
+        <meta content="The most spectacular coming soon template!" name="description">
+        <meta content="Comming Soon, Responsive, Landing Page, One Page" name="keywords"><!-- Open Graph Meta Data -->
+        <meta content="The most spectacular coming soon template!">
+        <meta content="ThemeWagon">
+        <meta content="ThemeWagon">
+        <meta content="website">
+        <meta content="index.html"><!-- Twitter Card Meta Data -->
+        <meta content="summary" name="twitter:card">
+        <meta content="@themewagon" name="twitter:site">
+        <meta content="@themewagon" name="twitter:creator">
+        <meta content="ThemeWagon" name="twitter:title">
+        <meta content="Imminent - The most spectacular coming soon template!" name="twitter:description">
+
+        <link href="favicon.png" rel="shortcut icon" type="image/png">
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
+        <!-- CSS -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,900' rel='stylesheet' type='text/css'><!-- Styles -->
+        <link href="css/loader.css" rel="stylesheet" type="text/css">
+        <link href="css/normalize.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" type="text/css" href="css/ie.css" />
+        <![endif]-->
+        <!-- Javascript -->
+
+        <script src="js/jquery.js"></script>
     <title>Mentor Education</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -286,7 +320,9 @@
     </div>
   </div>
 </div>
-
+<script src="js/plugins.js"></script> 
+        <script src="js/jquery.countdown.min.js"></script> 
+        <script src="js/main.js"></script>
 <!-- Bootstrap JS (Ensure Bootstrap 5 is included) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -371,46 +407,197 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </script>
 <div class="modal fade" id="redirectModal" tabindex="-1" aria-labelledby="redirectModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-fullscreen">
+        <div id="glitterOverlay"></div>
         <div class="modal-content">
+
             <div class="modal-header">
-                <h5 class="modal-title">Important Notice</h5>
+                <!-- <h5 class="modal-title">Countdown Timer</h5> -->
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <p>This is a temporary message. It will disappear in <span id="countdown">20</span> seconds.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <div class="modal-body p-0">
+                <div class="wrapper">
+                    <ul class="scene unselectable" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15" id="scene">
+                        <li class="layer" data-depth="0.00"></li>
+                        <li class="layer" data-depth="0.10"><div class="background"></div></li>
+                        <li class="layer" data-depth="0.20">
+                            <div class="title">
+                                <h2 id="animatedText"></h2>
+                              
+                            </div>
+                        </li>
+                        <li class="layer" data-depth="0.30">
+                            <div class="sphere"><img alt="sphere" src="assets/logo_new.png"></div>
+                        </li>
+                        <li class="layer" data-depth="0.30">
+                            <div class="hero">
+                                <h1 id="countdownTimer">1d 00:00:00</h1>
+                                <p class="sub-title">The most spectacular coming soon template!</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Glitter Effect Overlay -->
+
+
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+<style>
+    /* Glitter Effect */
+    #glitterOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHczeWRxcDFsOW5qbDJ6OXR5dGptNG0xcmpzcGhmdDRmb3VxcmhheiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9tXqnBCOMDbaCAEDJ8/giphy.gif') center/cover no-repeat;
+        opacity: 0.7;
+        z-index: 1050; /* Above modal */
+        display: none;
+    }
+
+    /* Confetti Canvas */
+    #confettiCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+</style>
+  <script>
+        let text = "Big College Counselling Limit Sheet in Ug Pg Diploma varient cities. Provide 100% Schoolership";
+        let index = 0;
+        let speed = 200; // Typing speed in milliseconds
+
+        function typeText() {
+            if (index < text.length) {
+                document.getElementById("animatedText").textContent += text.charAt(index);
+                index++;
+                setTimeout(typeText, speed);
+            } else {
+                document.getElementById("animatedText").style.borderRight = "none"; // Remove cursor after typing
+            }
+        }
+
+        // Start the typing effect after a delay (optional)
+        setTimeout(typeText, 1000);
+    </script>
 <script>
-    setTimeout(function() {
+    setTimeout(function () {
         let modal = new bootstrap.Modal(document.getElementById('redirectModal'));
         modal.show();
 
-        let countdownValue = 20;
-        let countdownElement = document.getElementById("countdown");
+       setTimeout(function () {
+    // Show glitter effect
+    let glitterOverlay = document.getElementById("glitterOverlay");
+    glitterOverlay.style.display = "block";
 
-        let countdownInterval = setInterval(function() {
-            countdownValue--;
-            countdownElement.textContent = countdownValue;
+    setTimeout(function () {
+        // Hide glitter effect after 5 seconds
+        glitterOverlay.style.display = "none";
+    }, 5000);
+}, 1000); // Show after 21 seconds
 
-            if (countdownValue === 0) {
+        // Countdown Timer
+        let countdownElement = document.getElementById("countdownTimer");
+        let endTime = new Date().getTime() + 24 * 60 * 60 * 1000; // 1 day from now
+
+        let countdownInterval = setInterval(function () {
+            let now = new Date().getTime();
+            let timeLeft = endTime - now;
+
+            let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            countdownElement.textContent = `${days}d ${hours}:${minutes}:${seconds}`;
+
+            if (timeLeft < 0) {
                 clearInterval(countdownInterval);
-                let modalElement = document.getElementById('redirectModal');
-                let modalInstance = bootstrap.Modal.getInstance(modalElement);
-                modalInstance.hide();
+                countdownElement.textContent = "00:00:00";
             }
         }, 1000);
+
+        setTimeout(function () {
+            let modalElement = document.getElementById('redirectModal');
+            let modalInstance = bootstrap.Modal.getInstance(modalElement);
+            modalInstance.hide();
+        }, 20000); // Close modal after 20 seconds
     }, 3000); // Show modal after 3 seconds
+     function startConfetti() {
+        let canvas = document.getElementById("confettiCanvas");
+        let ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let confetti = [];
+
+        function ConfettiPiece() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height - canvas.height;
+            this.size = Math.random() * 8 + 4;
+            this.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            this.velocity = {
+                x: Math.random() * 2 - 1,
+                y: Math.random() * 3 + 2
+            };
+            this.rotation = Math.random() * 360;
+            this.rotationSpeed = Math.random() * 10 - 5;
+        }
+
+        ConfettiPiece.prototype.update = function () {
+            this.y += this.velocity.y;
+            this.x += this.velocity.x;
+            this.rotation += this.rotationSpeed;
+            if (this.y > canvas.height) {
+                this.y = 0 - this.size;
+                this.x = Math.random() * canvas.width;
+            }
+        };
+
+        ConfettiPiece.prototype.draw = function () {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate((this.rotation * Math.PI) / 180);
+            ctx.fillStyle = this.color;
+            ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+            ctx.restore();
+        };
+
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                confetti.push(new ConfettiPiece());
+            }
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            confetti.forEach((piece) => {
+                piece.update();
+                piece.draw();
+            });
+            requestAnimationFrame(animateConfetti);
+        }
+
+        createConfetti();
+        animateConfetti();
+
+        setTimeout(() => {
+            confetti = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }, 5000); // Stop confetti after 5 seconds
+    }
 </script>
+ 
 
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

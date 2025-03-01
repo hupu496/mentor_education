@@ -6,11 +6,16 @@
     <title>Mentor Education</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .navbar-dark {
-        background-color: black !important;
+        body {
+    font-family: 'Montserrat', sans-serif;
+}
+         .navbar-dark {
+        background-color: #0d6efd !important;
     }
+    
     
         .top-bar {
             background-color: #f8f9fa;
@@ -87,6 +92,20 @@
             padding: 20px;
             border-radius: 5px;
         }
+        /* Dropdown animation */
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Show dropdown with animation */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
     </style>
 </head>
 <body>
@@ -95,9 +114,9 @@
         <div class="container">
             <div class="row">
                 <div class="col text-end">
-                    <a href="#" class="text-dark text-decoration-none me-3">About Us</a>
-                    <a href="#" class="text-dark text-decoration-none me-3">Privacy Policy</a>
-                    <a href="#" class="text-dark text-decoration-none">Terms and conditions</a>
+                    <a href="about.html" style="font-weight: 500;" class="text-dark text-decoration-none me-3">About Us</a>
+                    <a href="#" style="font-weight: 500;"  class="text-dark text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" style="font-weight: 500;" class="text-dark text-decoration-none">Terms and conditions</a>
                 </div>
             </div>
         </div>
@@ -106,48 +125,48 @@
     <!-- Main Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">MENTOR EDUCATION</a>
+            <a class="navbar-brand fw-bold" href="/"> <img src="assets/logo_new.png" alt="" width="90px">MENTOR EDUCATION</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="fas fa-home"></i> HOME</a>
+                        <a class="nav-link"  style="font-weight:500"href="/"><i class="fas fa-home"></i> HOME</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             COURSES
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
-                            <li><a class="dropdown-item" href="bams-ayurveda.html">BAMS AYURVEDA</a></li>
-                            <li><a class="dropdown-item" href="#">CPS & FCPS</a></li>
-                            <li><a class="dropdown-item" href="#">DENTAL</a></li>
-                            <li><a class="dropdown-item" href="#">ENGINEERING</a></li>
-                            <li><a class="dropdown-item" href="#">HOMEOPATHY</a></li>
-                            <li><a class="dropdown-item" href="#">MANAGEMENT</a></li>
-                            <li><a class="dropdown-item" href="#">MEDICAL</a></li>
-                            <li><a class="dropdown-item" href="#">MBBS IN NEPAL</a></li>
-                             <li><a class="dropdown-item" href="#">NURSING</a></li>
-                              <li><a class="dropdown-item" href="#">PHYSIOTHERAPY</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="bams-ayurveda.html">BAMS AYURVEDA</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="#">CPS & FCPS</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="#">DENTAL</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="#">ENGINEERING</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="#">HOMEOPATHY</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="#">MANAGEMENT</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="#">MEDICAL</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500"href="#">MBBS IN NEPAL</a></li>
+                             <li><a class="dropdown-item" style="font-weight:500" href="#">NURSING</a></li>
+                              <li><a class="dropdown-item" style="font-weight:500" href="#">PHYSIOTHERAPY</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="paid-counselling.html" id="counselingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" style="font-weight:500" href="paid-counselling.html" id="counselingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             PAID COUNSELLING
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="counselingDropdown">
-                            <li><a class="dropdown-item" href="cut_off_package.html">Counseling Option 1</a></li>
-                            <li><a class="dropdown-item" href="neet_pg_package.html">NEET PG PACKAGE</a></li>
-                            <li><a class="dropdown-item" href="#">NEET UG PACKAGE</a></li>
-                            <li><a class="dropdown-item" href="#">AYUSH COUNSELLING</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="cut_off_package.html">Counseling Option 1</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="neet_pg_package.html">NEET PG PACKAGE</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="#">NEET UG PACKAGE</a></li>
+                            <li><a class="dropdown-item" style="font-weight:500" href="#">AYUSH COUNSELLING</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admission_news.html">ADMISSION NEWS</a>
+                        <a class="nav-link" style="font-weight:500" href="admission_news.html">ADMISSION NEWS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">CONTACT US</a>
+                        <a class="nav-link" style="font-weight:500" href="contact.html">CONTACT US</a>
                     </li>
                 </ul>
             </div>
@@ -212,6 +231,65 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <!-- Bootstrap Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="
+    background: #90e4b2;
+">
+      <div class="modal-header">
+        <img src="assets/logo_new.png" alt="" width="100">
+        <h5 class="modal-title" style="color: white; font-weight: 800;" id="exampleModalLabel" style="text-align: center;">For Any Counselling Assistance Fill the Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name">
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Contact No</label>
+            <input type="text" class="form-control" id="contact" placeholder="Enter name">
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Course</label>
+            <select name="course" id="" class="form-control">
+                <option value="">Select Course</option>
+                <option value="MBA">BDS</option>
+                 <option value="MBA">BHMS</option>
+                  <option value="MBA">BPT</option>
+                   <option value="MBA">MBA</option>
+                    <option value="MBA">B. TECH/B.E</option>
+            </select>
+            <!-- <input type="text" class="form-control" id="name" placeholder="Enter name"> -->
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">State</label>
+             <select name="state" id="" class="form-control">
+                <option value="">Select State</option>
+                <option value="Bihar">Bihar</option>
+                 <option value="MBA">Jharkhand</option>
+                  <option value="MBA">West Bengal</option>
+                   <option value="MBA">Uttar pradesh</option>
+                    <option value="MBA">Kerala</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Message</label>
+            <textarea name="message" id="" cols="10" rows="5" class="from form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS (Ensure Bootstrap 5 is included) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -233,6 +311,12 @@
         });
     </script>
     <script>
+document.addEventListener("DOMContentLoaded", function() {
+    var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+    myModal.show();
+});
+</script>
+    <script>
     document.addEventListener("DOMContentLoaded", function () {
         let navLinks = document.querySelectorAll(".nav-link");
 
@@ -246,6 +330,91 @@
             });
         });
     });
+    // 
+    const whatsappIcon = document.createElement("div");
+whatsappIcon.innerHTML = `
+  <a href="https://wa.me/yourwhatsappnumber" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
+  </a>
+`;
+
+// Apply styles to keep it fixed
+whatsappIcon.style.position = "fixed";
+whatsappIcon.style.bottom = "20px";
+whatsappIcon.style.right = "20px";
+whatsappIcon.style.zIndex = "1000";
+
+// Append to the body
+document.body.appendChild(whatsappIcon);
+// fkldjsf
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".dropdown").forEach(function(dropdown) {
+        dropdown.addEventListener("mouseenter", function() {
+            let menu = this.querySelector(".dropdown-menu");
+            menu.style.display = "block";
+            setTimeout(() => {
+                menu.style.opacity = "1";
+                menu.style.transform = "translateY(0)";
+            }, 10);
+        });
+
+        dropdown.addEventListener("mouseleave", function() {
+            let menu = this.querySelector(".dropdown-menu");
+            menu.style.opacity = "0";
+            menu.style.transform = "translateY(-10px)";
+            setTimeout(() => {
+                menu.style.display = "none";
+            }, 500);
+        });
+    });
+});
+
 </script>
+<div class="modal fade" id="redirectModal" tabindex="-1" aria-labelledby="redirectModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Important Notice</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>This is a temporary message. It will disappear in <span id="countdown">20</span> seconds.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    setTimeout(function() {
+        let modal = new bootstrap.Modal(document.getElementById('redirectModal'));
+        modal.show();
+
+        let countdownValue = 20;
+        let countdownElement = document.getElementById("countdown");
+
+        let countdownInterval = setInterval(function() {
+            countdownValue--;
+            countdownElement.textContent = countdownValue;
+
+            if (countdownValue === 0) {
+                clearInterval(countdownInterval);
+                let modalElement = document.getElementById('redirectModal');
+                let modalInstance = bootstrap.Modal.getInstance(modalElement);
+                modalInstance.hide();
+            }
+        }, 1000);
+    }, 3000); // Show modal after 3 seconds
+</script>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>

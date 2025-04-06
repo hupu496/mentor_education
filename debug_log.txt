@@ -1,0 +1,45 @@
+Array
+(
+    [name] => aadarsh
+    [mobile] => 7412589630
+    [service] => MBBS IN NEPAL
+    [state] => Bihar
+    [query] => asdfasdf
+    [added_on] => 2025-03-19
+)
+Array
+(
+    [name] => aadarsh
+    [mobile] => 7412589630
+    [service] => MBBS IN NEPAL
+    [state] => Bihar
+    [query] => asdfasdf
+    [added_on] => 2025-03-19
+)
+Array
+(
+    [name] => aadarsh
+    [mobile] => 7412589630
+    [service] => MBBS IN NEPAL
+    [state] => Bihar
+    [query] => asdfasdf
+    [added_on] => 2025-03-19
+)
+Array
+(
+    [name] => kunal
+    [mobile] => 7894561230
+    [service] => DENTAL
+    [state] => West Bengal
+    [query] => asdfasdfasdfasdfasdf
+    [added_on] => 2025-03-19
+)
+Array
+(
+    [name] => aadarsh
+    [mobile] => 7894561230
+    [service] => ENGINEERING
+    [state] => Bihar
+    [query] => asdfasdfsadf
+    [added_on] => 2025-03-19
+)

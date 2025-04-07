@@ -542,18 +542,29 @@ public function insert_couselling(){
 	}
 	public function insert_admissionnews(){
 	 $data = $this->input->post();
-	 $datas['couselling_id'] = $data['couselling_id'];
-	 $datas['heading'] = json_encode($data['heading']);
-	 $datas['cousellingname'] = $data['cousellingname'];
-	 $datas['description'] = json_encode($data['description']);
-	 $datas['standard_plan_price'] = $data['standard_plan_price'];
-	 $datas['preminum_plan_price'] = $data['preminum_plan_price'];
-	 $datas['standard_text'] = json_encode($data['standard_text']);
-	 $datas['premium_text'] = json_encode($data['premium_text']);
+	 $datas['blog_id'] = $data['blog_id'];
+	 $datas['exam_name'] = $data['exam_name'];
+	 $datas['Exam_Particulars'] = json_encode($data['Exam_Particulars']);
+	 $datas['ExamDetails'] = json_encode($data['ExamDetails']);
+	 $datas['Events'] = json_encode($data['Events']);
+	 $datas['Dates'] = json_encode($data['Dates']);
+	 $datas['EntranceExam'] = json_encode($data['EntranceExam']);
+	 $datas['EligibilityCriteria'] = json_encode($data['EligibilityCriteria']);
+	 $datas['Sections'] = json_encode($data['Sections']);
+	 $datas['AllottedTime'] = json_encode($data['AllottedTime']);
+	 $datas['Questions'] = json_encode($data['Questions']);
+	 $datas['RegistrationProcess'] = json_encode($data['RegistrationProcess']);
+	 $datas['DocumentsRequired'] = json_encode($data['DocumentsRequired']);
+	 $datas['Nameprogram'] = json_encode($data['Nameprogram']);
+	 $datas['Campus'] = json_encode($data['Campus']);
+	 $datas['Seats'] = json_encode($data['Seats']);
+	 $datas['Program'] = json_encode($data['Program']);
+	 $datas['fee'] = json_encode($data['fee']);
 	 $datas['added_on'] = date('Y-m-d');
-	 $result=$this->db->insert('couselling_blog',$datas);
+	 $result=$this->db->insert('blog_desc',$datas);
+	
 	 if($result === true){
-	  $this->session->set_flashdata('msg',"Couselling Blog Created.");
+	  $this->session->set_flashdata('msg',"Admission Blog Created.");
 	}
     else{
      $this->session->set_flashdata('err_msg',$result);
@@ -562,54 +573,78 @@ public function insert_couselling(){
 } 
 	public function edit_admissionnews($id){
 		$id = $this->uri->segment('4');
-		$data['title'] = "Sub Service Edit";
+		$data['title'] = "Admission news Edit";
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
 		$data['datatable'] = true;
-        $data['couselling_blog']= $this->db->get_where('couselling_blog',array('id'=>$id))->row_array();
+        $data['blog_desc']= $this->db->get_where('blog_desc',array('id'=>$id))->row_array();
 
 		$schedule_data = [
-        "heading" => json_decode($data	['couselling_blog']['heading'], true) ?? [],
-        "description" => json_decode($data['couselling_blog']['description'], true) ?? [],
-        "standard_text" => json_decode($data['couselling_blog']['standard_text'], true) ?? [],
-        "premium_text" => json_decode($data['couselling_blog']['premium_text'], true) ?? [],  ];
+        "Exam_Particulars" => json_decode($data	['blog_desc']['Exam_Particulars'], true) ?? [],
+        "ExamDetails" => json_decode($data['blog_desc']['ExamDetails'], true) ?? [],
+        "Events" => json_decode($data['blog_desc']['Events'], true) ?? [],
+        "Dates" => json_decode($data['blog_desc']['Dates'], true) ?? [],
+		"EntranceExam" => json_decode($data['blog_desc']['EntranceExam'], true) ?? [], 
+		"EligibilityCriteria" => json_decode($data['blog_desc']['EligibilityCriteria'], true) ?? [],
+		"Sections" => json_decode($data['blog_desc']['Sections'], true) ?? [],
+		"AllottedTime" => json_decode($data['blog_desc']['AllottedTime'], true) ?? [],
+		"Questions" => json_decode($data['blog_desc']['Questions'], true) ?? [],
+		"RegistrationProcess" => json_decode($data['blog_desc']['RegistrationProcess'], true) ?? [],  
+		"DocumentsRequired" => json_decode($data['blog_desc']['DocumentsRequired'], true) ?? [],
+		"Nameprogram" => json_decode($data['blog_desc']['Nameprogram'], true) ?? [],
+		"Campus" => json_decode($data['blog_desc']['Campus'], true) ?? [], 
+		"Seats" => json_decode($data['blog_desc']['Seats'], true) ?? [],
+		"Program" => json_decode($data['blog_desc']['Program'], true) ?? [],
+		"fee" => json_decode($data['blog_desc']['fee'], true) ?? [],  ];
+
      $data['schedule'] = $schedule_data;
 	 $data['id'] = $id;
 
 		
-	$this->template->load('admin/service','edit_cousellingblog',$data);
+	$this->template->load('admin/service','admissionnews_edit',$data);
 
 	}
 	public function update_admissionnews(){
 	 $data = $this->input->post();
-	 $datas['heading'] = json_encode($data['heading']);
-	 $datas['cousellingname'] = $data['cousellingname'];
-	 $datas['description'] = json_encode($data['description']);
-	 $datas['standard_plan_price'] = $data['standard_plan_price'];
-	 $datas['preminum_plan_price'] = $data['preminum_plan_price'];
-	 $datas['standard_text'] = json_encode($data['standard_text']);
-	 $datas['premium_text'] = json_encode($data['premium_text']);
+	 $datas['id'] = $data['id'];
+	 $datas['exam_name'] = $data['exam_name'];
+	 $datas['Exam_Particulars'] = json_encode($data['Exam_Particulars']);
+	 $datas['ExamDetails'] = json_encode($data['ExamDetails']);
+	 $datas['Events'] = json_encode($data['Events']);
+	 $datas['Dates'] = json_encode($data['Dates']);
+	 $datas['EntranceExam'] = json_encode($data['EntranceExam']);
+	 $datas['EligibilityCriteria'] = json_encode($data['EligibilityCriteria']);
+	 $datas['Sections'] = json_encode($data['Sections']);
+	 $datas['AllottedTime'] = json_encode($data['AllottedTime']);
+	 $datas['Questions'] = json_encode($data['Questions']);
+	 $datas['RegistrationProcess'] = json_encode($data['RegistrationProcess']);
+	 $datas['DocumentsRequired'] = json_encode($data['DocumentsRequired']);
+	 $datas['Nameprogram'] = json_encode($data['Nameprogram']);
+	 $datas['Campus'] = json_encode($data['Campus']);
+	 $datas['Seats'] = json_encode($data['Seats']);
+	 $datas['Program'] = json_encode($data['Program']);
+	 $datas['fee'] = json_encode($data['fee']);
 	 $datas['added_on'] = date('Y-m-d');
-	 $result=$this->db->update('couselling_blog',$datas,array('id'=>$data['id']));
+	 $result=$this->db->update('blog_desc',$datas,array('id'=>$data['id']));
 	 if($result === true){
-	  $this->session->set_flashdata('msg',"Couselling Blog update.");
+	  $this->session->set_flashdata('msg',"Admission Blog update.");
 	}
     else{
      $this->session->set_flashdata('err_msg',$result);
 	}
 	
-	redirect('admin/service/cousellingblog_list');
+	redirect('admin/service/admissionnews_list');
 
 	}
 	public function delete_admissionnews($id){
 		$id = $this->uri->segment('4');
 	    $result= $this->Staff_model->delete_couselling($id);
 	    if($result === true){
-	    $this->session->set_flashdata('msg',"Delete Sub Service.");
+	    $this->session->set_flashdata('msg',"Delete Admission news.");
 	   }
 	   else{
 	  $this->session->set_flashdata('err_msg',$result);
 	   }
-	   redirect('admin/service/cousellingblog_list');
+	   redirect('admin/service/admissionnews_list');
 	}
 
 }	

@@ -45,7 +45,7 @@ class Staff_model extends CI_Model{
 	}
 	public function delete_couselling($id){
 		$this->db->where('id',$id);
-		$query = $this->db->delete('couselling_blog');
+		$query = $this->db->delete('blog_desc');
 		return $query;
 	}
 	public function delete_blog($id){

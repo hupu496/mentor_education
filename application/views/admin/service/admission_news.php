@@ -83,7 +83,7 @@
                                     <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Select Blog <span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">
-                                           <select class="form-control" name="subservice_id" id="courses" required>
+                                           <select class="form-control" name="blog_id"  required>
                                             <?php if(!empty($servilist)){
                                                 foreach($servilist as $value){ ?>
                                                  <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>

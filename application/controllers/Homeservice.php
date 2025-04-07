@@ -60,8 +60,6 @@ class Homeservice extends CI_Controller {
 		$data['services'] = $this->db->get_where('services',array('status'=>1))->result_array();
 	    $data['sub_service'] = $this->db->get_where('sub_service',array('status'=>1))->result_array();
 	    $data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
-		$data['faqs'] = $this->db->get_where('faqs',array('status'=>1))->result_array();
-		$data['testimonial'] = $this->db->get_where('testimonial',array('status'=>1))->result_array();
 		$data['title']="Home";
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/index',$data);
@@ -133,9 +131,12 @@ class Homeservice extends CI_Controller {
     }
 	public function blog_description()
 	{  
-		$id = $this->uri->segment(2);   
+		$id = $this->uri->segment(3);   
+		
 		$data['title']="Blog Description";
-		$data['blog_description'] = $this->db->get_where('blog',array('status'=>1,'id'=>$id))->row_array();
+		$where = array('t1.blog_id'=>$id);
+		$data['blog_description'] = $this->Homeservice_model->blog_desc($where);
+		
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/blog_description',$data);
         $this->load->view('website/footer');

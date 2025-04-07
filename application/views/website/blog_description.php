@@ -1,3 +1,20 @@
+<?php 
+$desc = $blog_description;
+
+// Decode JSON
+$particulars = json_decode($desc['Exam_Particulars'], true);
+$details = json_decode($desc['ExamDetails'], true);
+
+$events = json_decode($desc['Events'], true);
+$dates = json_decode($desc['Dates'], true);
+
+$entrance_exams = json_decode($desc['EntranceExam'], true);
+$eligibility = json_decode($desc['EligibilityCriteria'], true);
+
+$sections = json_decode($desc['Sections'], true);
+$times = json_decode($desc['AllottedTime'], true);
+$questions = json_decode($desc['Questions'], true);
+?>
 
     <style>
          .navbar-dark {
@@ -420,7 +437,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Management</a></li>
-                <li class="breadcrumb-item active">NMIMS Indore MBA Fees, NMAT Cut off, Placement, Package, Admission 2024</li>
+                <li class="breadcrumb-item active"><?php echo $blog_description['name']; ?></li>
             </ol>
         </nav>
         
@@ -431,76 +448,34 @@
         </div>
         
         <!-- Main Content -->
-        <h2 class="summary-heading">QUICK SUMMARY OF SVKM'S NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES, INDORE:</h2>
+        <h2 class="summary-heading"><?php echo $blog_description['exam_name']; ?>:</h2>
         
         <!-- Information Table -->
         <table class="table info-table">
             <thead>
                 <tr>
-                    <th colspan="2">NAME OF COLLEGE</th>
+                    <th >Exam Particulars</th>
+                     <th colspan="2">Exam Details</th>
                 </tr>
-                <tr>
-                    <th colspan="2">SVKM'S NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES, INDORE</th>
-                </tr>
+               
             </thead>
-            <tbody>
-                <tr>
-                    <td width="30%">Generally Known As</td>
-                    <td>Narsee Monjee School of Business Management or NMIMS Indore</td>
-                </tr>
-                <tr>
-                    <td>Full Address of College</td>
-                    <td>Super Corridor Rd, Gandhi Nagar, Indore, Madhya Pradesh, 452005</td>
-                </tr>
-                <tr>
-                    <td>Established in</td>
-                    <td>2017</td>
-                </tr>
-                <tr>
-                    <td>Affiliated From</td>
-                    <td>NMIMS University (Deemed to be)</td>
-                </tr>
-                <tr>
-                    <td>Approved by</td>
-                    <td>AICTE, New Delhi</td>
-                </tr>
-                <tr>
-                    <td>Institution Type</td>
-                    <td>Deemed</td>
-                </tr>
-                <tr>
-                    <td>Accredited by</td>
-                    <td>NAAC</td>
-                </tr>
-                <tr>
-                    <td>Courses offered</td>
-                    <td>MBA</td>
-                </tr>
-                <tr>
-                    <td>Specialization</td>
-                    <td>Business Analytics, Finance, Human Resources, Operations, Sales and Marketing</td>
-                </tr>
-                <tr>
-                    <td>Exam Accepted</td>
-                    <td>NMAT</td>
-                </tr>
-                <tr>
-                    <td>Highest Placements</td>
-                    <td>INR 16.80 LPA</td>
-                </tr>
-                <tr>
-                    <td>Average Placements</td>
-                    <td>INR 12.50 LPA</td>
-                </tr>
-                <tr>
-                    <td>Official Website</td>
-                    <td><a href="https://www.nmimsindore.org" target="_blank">https://www.nmimsindore.org</a></td>
-                </tr>
-                <tr>
-                    <td>Contact Number</td>
-                    <td>+91-9028009835</td>
-                </tr>
-            </tbody>
+          <tbody>
+        <?php foreach ($particulars as $i => $label): ?>
+            <tr>
+                <td width="30%"><?= htmlspecialchars($label) ?></td>
+                <td>
+                    <?php 
+                    $value = $details[$i] ?? '';
+                    if (filter_var($value, FILTER_VALIDATE_URL)) {
+                        echo '<a href="' . htmlspecialchars($value) . '" target="_blank">' . htmlspecialchars($value) . '</a>';
+                    } else {
+                        echo htmlspecialchars($value);
+                    }
+                    ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
         </table>
     </div>
     

@@ -14,10 +14,9 @@
                     	<thead>
                         	<tr>
                             	<th class="table-plus">Sl No</th>
-                                <th>Couselling</th>
-                                <th>Name</th>
+                                <th>Blog</th>
+                                <th>Blog Desc</th>
                                 <th>Description</th>
-							
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -29,11 +28,11 @@
                         	<tr>
                             	<td class="table-plus" ><?php echo $i; ?></td>
                                 <td ><?php echo $srlist['name']; ?></td>
-								<td ><?php echo $srlist['cousellingname']; ?></td>
+								<td ><?php echo $srlist['exam_name']; ?></td>
 								<td><?php echo $srlist['description'];?></td>
                                 <td >
-                                 <a href="<?php echo base_url("admin/service/edit_cousellingblog/$srlist[cous_id]"); ?>" class="btn btn-sm btn-success" ><i class="fa fa-file"></i> Edit </a>
-                                  <a href="<?php echo base_url("admin/service/delete_couselling/$srlist[cous_id]"); ?>" class="btn btn-sm btn-danger delete" value="<?php echo $srlist['cous_id'] ;?>"><i class="fa fa-trash"></i> Delete </a>
+                                 <a href="<?php echo base_url("admin/service/edit_admissionnews/$srlist[admission_id]"); ?>" class="btn btn-sm btn-success" ><i class="fa fa-file"></i> Edit </a>
+                                  <a href="<?php echo base_url("admin/service/delete_admissionnews/$srlist[admission_id]"); ?>" class="btn btn-sm btn-danger delete" value="<?php echo $srlist['admission_id'] ;?>"><i class="fa fa-trash"></i> Delete </a>
                               </td>
                             </tr>
                             <?php

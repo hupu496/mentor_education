@@ -136,6 +136,14 @@ class Homeservice_model extends CI_Model{
     $query = $this->db->get('courses_desc');
     return $query->result_array();
 }
+public function blog_desc($where){
+    $this->db->select('t1.*, t2.id as blogid, t2.name,t2.description,t2.photos',);
+	$this->db->from('blog_desc t1');
+	$this->db->join('blog t2', 't1.blog_id = t2.id');
+	$this->db->where($where);
+	$query = $this->db->get();
+	return $query->row_array();
+}
 	
 }
 

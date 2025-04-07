@@ -52,7 +52,7 @@ class Search_model extends CI_Model{
 		
 	}
 	public function admissionnews_list(){
-		$this->db->select('t1.*,t1.id as admission_id,t1.exam_name,t2.id,t2.name');
+		$this->db->select('t1.*,t1.id as admission_id,t1.exam_name,t2.id,t2.name,t2.description');
 		$this->db->from('blog_desc t1');
 		$this->db->join('blog t2','t1.blog_id = t2.id', 'left');
 		$this->db->where('t1.status',1);

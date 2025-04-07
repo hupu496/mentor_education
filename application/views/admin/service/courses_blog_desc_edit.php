@@ -91,7 +91,7 @@
                                                 <button type="button" class="remove-btn" onclick="removeRow(this)">Remove</button>
                                             </div>
                                              <?php endforeach; ?>
-                <?php endif; ?>
+                                            <?php endif; ?>
                                         </div>
                                         
                                         <button type="button" class="add-row-btn" onclick="addNewRow()">Add New Row</button>

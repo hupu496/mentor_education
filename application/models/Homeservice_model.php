@@ -42,42 +42,14 @@ class Homeservice_model extends CI_Model{
 		return $query->result_array();
 
 	}
-	public function subservice($where){
-		$this->db->select('t1.*,t2.id as serviceid,t2.name');
-		$this->db->from('sub_service as t1');
-		$this->db->join('services as t2','t1.service_id = t2.id');
+	public function servic_blog($where){
+		$this->db->select('t1.*, t1.id as blogid, t2.id as courses_id,t2.name as coursename');
+		$this->db->from('blog as t1');
+		$this->db->join('services as t2','t1.courses = t2.id');
 		$this->db->where($where);
-		$query =  $this->db->get();
+		$query = $this->db->get();
 		return $query->result_array();
 	}
-	public function franchise_orderbook($data){
-		$table="franchise_book";  
-		$salt=random_string('alnum', 8);
-		$password=md5($data['password'].SITE_SALT.$salt);
-		$data['salt'] = $salt;
-    $data['cpassword'] = $password;
-    $data['added_on'] = date("Y-m-d");
-    $query = $this->db->insert('franchise_book',$data);
-    $insert_id = $this->db->insert_id();
-    	$cookie = array(
-        'name'   => 'franchiseid',
-        'value'  => $insert_id,
-        'expire' => '86400'        
-         ); 
-		
-        $this->input->set_cookie($cookie);
-    if($query == true){
-    	return true;
-
-    }else{
-       return false;
-
-    }
-    
-    
-
-	}
-
 
 	
 	public function getdifferencemin($start, $curecord)
@@ -130,16 +102,12 @@ class Homeservice_model extends CI_Model{
 			 return $result=array('verify'=>"Wrong Password!");
 			 }
 	}
-	public function get_courses_desc($id)
-{
-    $this->db->where('subservice_id', $id);
-    $query = $this->db->get('courses_desc');
-    return $query->result_array();
-}
+	
 public function blog_desc($where){
-    $this->db->select('t1.*, t2.id as blogid, t2.name,t2.description,t2.photos',);
+    $this->db->select('t1.*, t2.id as blogid, t2.name,t2.description,t2.photos,t3.id as servid, t3.name as coursename',);
 	$this->db->from('blog_desc t1');
 	$this->db->join('blog t2', 't1.blog_id = t2.id');
+	$this->db->join('services t3','t2.courses = t3.id');
 	$this->db->where($where);
 	$query = $this->db->get();
 	return $query->row_array();

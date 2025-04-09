@@ -1,4 +1,15 @@
-  <footer class="footer">
+<style>
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: white;
+      text-decoration: none;
+    }
+</style>
+<footer class="footer">
     <div class="container">
         <div class="row">
             <!-- Company Info -->
@@ -17,11 +28,11 @@
             <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                 <h5>Quick Links</h5>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Career Counseling</a></li>
-                    <li><a href="#">Admission Process</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="<?php echo base_url('/about'); ?>">About Us</a></li>
+                    <li><a href="<?php echo base_url('/service/1'); ?>">Our Services</a></li>
+                    <li><a href="<?php echo base_url('couselling/1'); ?>">Career Counseling</a></li>
+                    <li><a href="<?php echo base_url('admission_news'); ?>">Admission Process</a></li>
+                    <li><a href="<?php echo base_url('/contact'); ?>">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -30,8 +41,8 @@
                 <h5>Contact Info</h5>
                 <div class="contact-info">
                     <p><i class="fas fa-map-marker-alt"></i> 123 Education Street, City, Country</p>
-                    <p><i class="fas fa-phone"></i> +91 831 923 3142</p>
-                    <p><i class="fas fa-envelope"></i> info@mentoreducation.com</p>
+                    <p><a href="tel:+918319233142"><i class="fas fa-phone"></i> +91 831 923 3142</a></p>
+                    <p><a href="mailto:info@mentoreducation.com"><i class="fas fa-envelope"></i> info@mentoreducation.com </a></p>
                     <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
                 </div>
             </div>
@@ -50,23 +61,36 @@
         </div>
 
         <!-- Footer Bottom -->
-        <div class="row footer-bottom">
-            <div class="col-md-6 text-center text-md-start">
-                <p class="mb-0">&copy; 2024 Mentor Education. All rights reserved.</p>
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                <p class="mb-0">
-                    <a href="#" class="text-white me-3">Privacy Policy</a>
-                    <a href="#" class="text-white me-3">Terms & Conditions</a>
-                    <a href="#" class="text-white">FAQ</a>
-                </p>
-            </div>
-        </div>
+       <div class="row footer-bottom">
+    <div class="col-md-5 text-center text-md-start">
+        <p class="mb-0">&copy; 2024 Mentor Education. All rights reserved.</p>
+    </div>
+    <div class="col-md-2"> <span id="visitor-count" style="background:black; padding:5px;"class="ms-3">Visitors: 0</span></div>
+    <div class="col-md-5 text-center text-md-end">
+        <p class="mb-0">
+            <a href="<?php echo base_url('/privacy_policy'); ?>" class="text-white me-3">Privacy Policy</a>
+            <a href="<?php echo base_url('/term_condition'); ?>" class="text-white me-3">Terms & Conditions</a>
+            <!-- <a href="<?php echo base_url(); ?>" class="text-white">FAQ</a> -->
+           
+        </p>
+    </div>
+</div>
     </div>
 </footer>
 
     <!-- Modal -->
     <!-- Bootstrap Modal -->
+    <script>
+// Get visitor count from localStorage (for demo)
+let count = localStorage.getItem('visitor_count') || 0;
+
+// Increment and update localStorage
+count++;
+localStorage.setItem('visitor_count', count);
+
+// Show on page
+document.getElementById('visitor-count').textContent = 'Visitors: ' + count;
+</script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -117,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // 
     const whatsappIcon = document.createElement("div");
 whatsappIcon.innerHTML = `
-  <a href="https://wa.me/yourwhatsappnumber" target="_blank">
+  <a href="https://wa.me/918319233142?text=Hello%2C%20I%20am%20interested%20in%20your%20services" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
   </a>
 `;
@@ -134,7 +158,7 @@ document.body.appendChild(whatsappIcon);
 const callicon = document.createElement("div");
 callicon.innerHTML = `
    <a href="tel:+918319233142" target="_blank">
-   <img width="40" height="40" src="<?php echo base_url('assets/call.png'); ?>" alt="phone"/>
+   <img width="40" height="40" src="<?php echo base_url('assets/call.webp'); ?>" alt="phone"/>
   </a>
 `;
 
@@ -172,46 +196,46 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   <script>
-$(document).ready(function () {
-    $("#serviceOrderForm").submit(function (event) {
-        event.preventDefault(); // Prevent default form submission
+<script>
+  $(document).ready(function () {
+    $('#serviceOrderForm').on('submit', function (e) {
+      e.preventDefault();
 
-        $.ajax({
-            url: $(this).attr("action"), // Form action URL
-            type: "POST",
-            data: $(this).serialize(), // Serialize form data
-            dataType: "json",
-            success: function (response) {
-                if (response.status === "success") {
-                    Swal.fire({
-                        title: "Submitted Successfully!",
-                        text: "Meeting Available Soon!",
-                        icon: "success"
-                    }).then(() => {
-                        window.location.reload(); // Reload page after success
-                    });
-                } else {
-                    Swal.fire("Error!", response.message || "Something went wrong.", "error");
-                }
-            },
-            error: function (xhr, status, error) {
-                console.log("AJAX Error: ", xhr.responseText); // Debugging
-                Swal.fire("Error!", "Failed to submit the form. " + xhr.responseText, "error");
-            }
-        });
+      $.ajax({
+        type: 'POST',
+        url: 'http://localhost/mentor_education/homeservice/serviceorder', // Update here
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function (response) {
+          console.log("Server response:", response);
+          if (response.status === 'success') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Success!',
+              text: response.message
+            });
+            $('#serviceOrderForm')[0].reset();
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: response.message
+            });
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("AJAX Error:", status, error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Request Failed',
+            text: 'Something went wrong. Please try again.',
+            footer: '<pre>' + xhr.responseText + '</pre>'
+          });
+        }
+      });
     });
-});
+  });
 </script>
-
- 
-
-<!-- Bootstrap 5 JS -->
-
-
-
 </body>
 </html>
 

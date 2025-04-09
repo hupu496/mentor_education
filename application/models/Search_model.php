@@ -60,6 +60,20 @@ class Search_model extends CI_Model{
 		return $query->result_array();
 		
 	}
+	public function search_data($query) {
+        $this->db->like('name', $query);
+        $this->db->or_like('description', $query);
+        $blog = $this->db->get('blog')->result();
+
+        $this->db->like('name', $query);
+        $this->db->or_like('description', $query);
+        $counselling = $this->db->get('counselling')->result();
+
+        return [
+            'blog' => $blog,
+            'counselling' => $counselling
+        ];
+    }
 	
 	
 }

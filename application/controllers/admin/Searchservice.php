@@ -11,13 +11,7 @@ class Searchservice extends CI_Controller{
  		//print_r($data);die;
 		$this->template->load('admin/searchservice','add',$data);
 	}
-	public function sub_service(){
-		$data['title'] = "Courses Blog";
-		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
-		$servilist = $this->Homeservice_model->get_servicewebsite(array('status'=>1),'all');
-		$data['servilist'] = $servilist;
-		$this->template->load('admin/searchservice','sub_service',$data);
-	}
+	
 	public function add_blog(){
 		$data['title'] = "Add Blog";
 		$data['breadcrumb'] = array('admin/searchservice' =>'Dashboard');
@@ -25,28 +19,10 @@ class Searchservice extends CI_Controller{
         $data['datatable'] = true;
         $data['ckeditor'] = true;
         $data['switchery'] = true;
+		$data['courses'] = $this->db->get_where('services',array('status'=>1))->result_array();
 		$this->template->load('admin/searchservice','add_blog',$data);
 	}
 
-	 public function insert_subservice(){
-	 $data = $this->input->post();
-	 $upload_path = './assets/uploads/project/';	
-		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
-		if($_FILES['proj_images']['name'] !=''){	
-			  $proj_images = upload_file("proj_images", $upload_path, $allowed_types, time());
-			  if ($proj_images !='') {
-				  $data['proj_images'] = $proj_images['path'];
-			  }
-		  }
-	 $result=$this->db->insert('sub_service',$data);
-	 if($result === true){
-	  $this->session->set_flashdata('msg',"Project Created.");
-	}
-    else{
-   $this->session->set_flashdata('err_msg',$result);
-	}
-	redirect('admin/searchservice/sub_servicelist');
-} 
  public function insert_blog(){
 	 $data = $this->input->post();
 	 $upload_path = './assets/uploads/blog/';	
@@ -84,72 +60,7 @@ class Searchservice extends CI_Controller{
 		$data['searchlist'] = $searchlist;
 		$this->template->load('admin/searchservice','view',$data);
 	}
-	public function sub_servicelist(){
-		$data['title'] = "Courses Blog";
-		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
-		$data['datatable'] = true;
-        $subservicelist= $this->Search_model->sub_servicelist();
-		if(empty($subservicelist)){
-			$this->session->set_flashdata('msg',"data not Found.");
-			redirect($_SERVER['HTTP_REFERER']);
-		}
-		$data['subservicelist'] = $subservicelist;
-		$this->template->load('admin/searchservice','subservicelist',$data);
-	}
-	public function edit_subservice($id){
-		$id = $this->uri->segment('4');
-		$data['title'] = "Sub Service Edit";
-		$data['breadcrumb'] = array('dashboard'=>'Dashboard');
-		$data['datatable'] = true;
-        $subservicelist= $this->Search_model->edit_subservice($id);
-		if(empty($subservicelist)){
-			$this->session->set_flashdata('msg',"data not Found.");
-			redirect($_SERVER['HTTP_REFERER']);
-		}
-		$data['service'] = $this->db->get_where('services',array('status'=>1))->result_array();
-
-		$data['subservicelist'] = $subservicelist;
-		$this->template->load('admin/searchservice','edit_subservice',$data);
-
-	}
-	public function update_subservice(){
-	 $data = $this->input->post();
-	 $upload_path = './assets/uploads/project/';	
-		$allowed_types = 'gif|jpg|jpeg|png|pdf|GIF|JPG|JPEG|PNG|PDF';
-		if($_FILES['proj_images']['name'] !=''){	
-			  $proj_images = upload_file("proj_images", $upload_path, $allowed_types, time());
-			  if ($proj_images !='') {
-				  $data['proj_images'] = $proj_images['path'];
-			  }
-		  }
-	 $where = $this->db->where('id',$data['id']);
-	 if($_FILES['proj_images']['name'] !=''){
-	 	$result=$this->db->update('sub_service',array('service_id'=>$data['service_id'],'sub_service'=>$data['sub_service'],'Description'=>$data['Description'],'proj_images'=>$data['proj_images'],'video'=>$data['video']),$where);
-
-	 }else{
-	 	$result=$this->db->update('sub_service',array('service_id'=>$data['service_id'],'sub_service'=>$data['sub_service'],'Description'=>$data['Description'],'video'=>$data['video']),$where);
-	 }
-	 
-	 if($result === true){
-	  $this->session->set_flashdata('msg',"Update Succesfully.");
-	}
-    else{
-     $this->session->set_flashdata('err_msg',$result);
-	}
-	redirect('admin/searchservice/sub_servicelist');
-
-	}
-	public function delete_subservice($id){
-		$id = $this->uri->segment('4');
-	    $result= $this->Staff_model->delete_subservice($id);
-	    if($result === true){
-	    $this->session->set_flashdata('msg',"Delete Sub Service.");
-	   }
-	   else{
-	  $this->session->set_flashdata('err_msg',$result);
-	   }
-	   redirect('admin/searchservice/sub_servicelist');
-	}
+	
 	public function blog_list(){
 		$data['title'] = "Blog list";
 		$data['breadcrumb'] = array('dashboard'=>'Dashboard');

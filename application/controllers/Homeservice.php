@@ -58,7 +58,7 @@ class Homeservice extends CI_Controller {
 	public function index()
 	{   
 		$data['services'] = $this->db->get_where('services',array('status'=>1))->result_array();
-	    $data['sub_service'] = $this->db->get_where('sub_service',array('status'=>1))->result_array();
+	   
 	    $data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
 		$data['title']="Home";
 		$this->load->view('website/top-section',$data);
@@ -111,10 +111,9 @@ class Homeservice extends CI_Controller {
 		$id = $this->uri->segment('3');
 		$data['id'] = $id;
 	    $data['title']="Services";
-        $this->load->view('website/top-section',$data);
-		$data['courses_desc'] = $this->Homeservice_model->get_courses_desc($id);
-		$where = array('t2.id'=>$id);
-		$data['subservice'] = $this->Homeservice_model->subservice($where);
+        $where = array('t1.courses'=>$id,'t1.status'=>1);
+		$data['blog'] = $this->Homeservice_model->servic_blog($where);
+		$this->load->view('website/top-section',$data);
 		$this->load->view('website/courses',$data);
         $this->load->view('website/footer');
     }
@@ -136,7 +135,8 @@ class Homeservice extends CI_Controller {
 		$data['title']="Blog Description";
 		$where = array('t1.blog_id'=>$id);
 		$data['blog_description'] = $this->Homeservice_model->blog_desc($where);
-		
+		$data['services'] = $this->db->get_where('services',array('status'=>1))->result_array();
+		$data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/blog_description',$data);
         $this->load->view('website/footer');
@@ -156,34 +156,75 @@ class Homeservice extends CI_Controller {
         $this->load->view('website/bottom-script');
 		    $this->load->view('website/bottom-section');
     }
-	public function serviceorder() {
+public function serviceorder()
+{
     header('Content-Type: application/json');
 
-    // Validate input (Example: checking if name and mobile are provided)
-    if (empty($this->input->post('name')) || empty($this->input->post('mobile'))) {
+    // Optional: allow cross-origin requests if needed
+    // header('Access-Control-Allow-Origin: *');
+
+    if (!$this->input->is_ajax_request()) {
+        echo json_encode(["status" => "error", "message" => "Invalid request type."]);
+        return;
+    }
+
+    $name = $this->input->post('name');
+    $mobile = $this->input->post('mobile');
+    $service = $this->input->post('service');
+    $state = $this->input->post('state');
+    $query = $this->input->post('query');
+
+    // Validate
+    if (empty($name) || empty($mobile)) {
         echo json_encode(["status" => "error", "message" => "Name and Mobile are required!"]);
         return;
     }
 
-    // Process form data here (e.g., insert into database)
+    // Save to DB
     $data = [
-        'name' => $this->input->post('name'),
-        'mobile' => $this->input->post('mobile'),
-        'service' => $this->input->post('service'),
-        'state' => $this->input->post('state'),
-        'query' => $this->input->post('query'),
-        'created_at' => date("Y-m-d H:i:s")
+        'name' => $name,
+        'mobile' => $mobile,
+        'service' => $service,
+        'state' => $state,
+        'query' => $query,
+        'created_at' => date('Y-m-d H:i:s')
     ];
 
-    // Assuming a successful database insert
-    $insert = $this->db->insert('service_orders', $data);
-
-    if ($insert) {
+    if ($this->db->insert('service_orders', $data)) {
         echo json_encode(["status" => "success", "message" => "Form submitted successfully!"]);
     } else {
-        echo json_encode(["status" => "error", "message" => "Database error, please try again."]);
+        echo json_encode(["status" => "error", "message" => "Failed to save data."]);
     }
 }
+
+
+public function fetch() {
+        $query = $this->input->post('query');
+        $this->load->model('Search_model');
+        $results = $this->Search_model->search_data($query);
+
+        // Blog results
+        echo "<h5>Blog Results</h5>";
+        if (!empty($results['blog'])) {
+            foreach ($results['blog'] as $row) {
+                echo "<div><strong>{$row->title}</strong><br>{$row->content}</div><hr>";
+            }
+        } else {
+            echo "<div>No blog results found.</div>";
+        }
+
+        // Counselling results
+        echo "<h5>Counselling Results</h5>";
+        if (!empty($results['counselling'])) {
+            foreach ($results['counselling'] as $row) {
+                echo "<div><strong>{$row->name}</strong><br>{$row->description}</div><hr>";
+            }
+        } else {
+            echo "<div>No counselling results found.</div>";
+        }
+    }
+
+
 
 
 

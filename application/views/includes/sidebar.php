@@ -26,12 +26,7 @@
             <li class="<?php echo activate_menu('service/servilist'); ?>">
                 <a href="<?php echo base_url("admin/service/servilist"); ?>"><i class="fa fa-cog"></i> <span>Add Courses</span></a>
             </li>
-            <li class="<?php echo activate_menu('searchservice/track'); ?>">
-                <a href="<?php echo base_url("admin/searchservice/sub_service"); ?>"><i class="fa fa-cog"></i> <span>Courses Blog</span></a>
-            </li>
-             <li class="<?php echo activate_menu('searchservice/track'); ?>">
-                <a href="<?php echo base_url("admin/service/courses_blog_desc"); ?>"><i class="fa fa-cog"></i> <span>Courses Blog description</span></a>
-            </li>
+            
              <li class="<?php echo activate_menu('searchservice/track'); ?>">
                 <a href="<?php echo base_url("admin/searchservice/add_blog"); ?>"><i class="fa fa-cog"></i> <span>Add Blog</span></a>
             </li>

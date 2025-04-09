@@ -63,31 +63,13 @@ $route['our_team']='homeservice/our_team';
 $route['blog_description'] = 'homeservice/blog_description';
 $route['serviceorder'] = 'homeservice/serviceorder';
 $route['admission_news'] = 'homeservice/admission_news';
+$route['filters'] = 'homeservice/fetch';
 
 // /////////////////////////////////////////
 
 // $route['cookie_policy'] = 'homeservice/cookie_policy';
 // $route['refund_policy'] = 'homeservice/refund_policy';
-$route['shipping_delivery_policy'] = 'homeservice/shipping_delivery_policy';
-$route['delivery_partner_termcondition'] = 'homeservice/delivery_partner_termcondition';
-$route['payment_verify'] = 'homeservice/payment_verify';
-$route['franchise_book'] = 'homeservice/franchise_book';
-$route['franchise_orderbook'] = 'homeservice/franchise_orderbook';
-$route['franchise_makepayment'] = 'homeservice/franchise_makepayment';
-$route['franchise_payment_verify'] = 'homeservice/franchise_payment_verify';
-$route['review'] = 'homeservice/review';
-$route['order_status'] = 'homeservice/order_status';
-$route['service'] = 'homeservice/service';
-$route['service_form'] = 'homeservice/service_form';
-$route['serviceform_save'] = 'homeservice/serviceform_save';
-$route['contactform'] = 'homeservice/contactform';
 
-$route['register'] = 'homeservice/register';
-$route['user_register'] = 'homeservice/user_register';
-$route['delivery_register'] = 'homeservice/delivery_register';
-$route['login'] = 'homeservice/login';
-$route['servicedetails'] = 'homeservice/servicedetails';
-$route['franchise_pdf'] = 'homeservice/franchise_pdf';
 $route['admin'] = 'admin/login';
 $route['user'] = 'admin/login/user';
 $route['user/franchise_order_list'] = 'admin/login/franchise_order_list';

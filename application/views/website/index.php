@@ -19,18 +19,20 @@
                   }  ?>
                   </div>
             <!-- Sidebar -->
+           
             <div class="col-lg-4">
                 <!-- Search Box -->
                 <div class="card mb-4">
                     <div class="card-body" style="
     background: radial-gradient(#0ea05d, transparent);
 ">
-                        <form>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search the site">
-                                <button class="btn btn-primary" type="submit">Search</button>
-                            </div>
-                        </form>
+                            <form id="search-form">
+                                <div class="input-group">
+                                  <input type="text" name="query" class="form-control" id="search-input" placeholder="Search the site">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                            </form>
+                             <div id="search-results" style="margin-top:20px;"></div>
                     </div>
                 </div>
 
@@ -43,7 +45,7 @@
                         <ul class="list-unstyled">
                           <?php  if(!empty($blog)) {
                             foreach ($blog as $key => $value) {  ?>
-                            <li class="mb-2"><a href="<?php echo base_url('homeservice/blog_description/'.$value['id']); ?>" class="text-decoration-none"><?php echo $value['name']; ?></a></li>
+                            <li class="mb-2"><a href="<?php echo base_url('homeservice/blog_description/'.$value['id']); ?>" class="text-decoration-none" style="color:blue;"><?php echo $value['name']; ?></a></li>
                    <?php          }
                           }  ?>
                             
@@ -64,7 +66,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       <form id="serviceOrderForm" method="POST" action="<?php echo site_url('homeservice/serviceorder');?>" enctype="multipart/form-data">
+       <form id="serviceOrderForm" >
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" name="name" class="form-control" id="name" placeholder="Enter name">
@@ -152,34 +154,10 @@
 <!-- Bootstrap 5 JS -->
 
 
-<style>
-    /* Glitter Effect */
-    #glitterOverlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHczeWRxcDFsOW5qbDJ6OXR5dGptNG0xcmpzcGhmdDRmb3VxcmhheiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9tXqnBCOMDbaCAEDJ8/giphy.gif') center/cover no-repeat;
-        opacity: 0.7;
-        z-index: 1050; /* Above modal */
-        display: none;
-    }
-
-    /* Confetti Canvas */
-    #confettiCanvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-    }
-</style>
   <script>
         let text = "Big College Counselling Limit Sheet in Ug Pg Diploma varient cities. Provide 100% Schoolership";
         let index = 0;
-        let speed = 200; // Typing speed in milliseconds
+        let speed = 100; // Typing speed in milliseconds
 
         function typeText() {
             if (index < text.length) {
@@ -302,3 +280,5 @@
     }
 </script>
  
+
+

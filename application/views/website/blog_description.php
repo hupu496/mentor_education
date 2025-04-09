@@ -14,6 +14,22 @@ $eligibility = json_decode($desc['EligibilityCriteria'], true);
 $sections = json_decode($desc['Sections'], true);
 $times = json_decode($desc['AllottedTime'], true);
 $questions = json_decode($desc['Questions'], true);
+
+$RegistrationProcess = json_decode($desc['RegistrationProcess'], true);
+$DocumentsRequired = json_decode($desc['DocumentsRequired'], true);
+
+$Nameprogram = json_decode($desc['Nameprogram'], true);
+$Campus = json_decode($desc['Campus'], true);
+$Seats = json_decode($desc['Seats'], true);
+
+$Program = json_decode($desc['Program'], true);
+$fee = json_decode($desc['fee'], true);
+
+$current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http");
+$current_url .= "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$encoded_url = urlencode($current_url);
+$encoded_msg = urlencode("Check this out!");
+
 ?>
 
     <style>
@@ -429,14 +445,13 @@ $questions = json_decode($desc['Questions'], true);
             background-color: #f8f9fa;
         }
     </style>
-</head>
-<body>
+
    <div class="container content-container">
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Management</a></li>
+                <li class="breadcrumb-item"><a href="#"><?php echo $blog_description['coursename']; ?></a></li>
                 <li class="breadcrumb-item active"><?php echo $blog_description['name']; ?></li>
             </ol>
         </nav>
@@ -481,192 +496,139 @@ $questions = json_decode($desc['Questions'], true);
     
     <!-- Social Share Buttons -->
     <div class="social-share">
-        <a href="#" class="whatsapp" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/918319233142?text=Hello%2C%20I%20am%20interested%20in%20your%20services" class="whatsapp" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="#" class="facebook" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="share" title="Share"><i class="fas fa-share-alt"></i></a>
+        <div id="copy-msg" style="display:none; color:green; margin-top:10px;">🔗 Link copied to share!</div>
     </div>
+    
     <div class="container content-container">
         <!-- Seats Intake Section -->
-        <h2 class="section-title">NMIMS INDORE MBA SEATS INTAKE:</h2>
+        <h2 class="section-title">Result Date and Registration Date:</h2>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>COURSE NAME</th>
-                        <th>TOTAL SEATS</th>
-                        <th>DURATION</th>
+                        <th>Events</th>
+                        <th>Dates</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>MBA</td>
-                        <td>120</td>
-                        <td>2 Years</td>
-                    </tr>
+                   <?php foreach ($events as $i => $event): ?>
+            <tr>
+                <td width="30%"><?= htmlspecialchars($event) ?></td>
+                <td><?= htmlspecialchars($dates[$i] ?? '') ?></td>
+            </tr>
+        <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
 
-        <!-- Eligibility Criteria Section -->
-        <h2 class="section-title">SCHOOL OF BUSINESS MANAGEMENT, NMIMS INDORE ELIGIBILITY CRITERIA:</h2>
+         <h2 class="section-title">Entrance Exams & Eligibility:</h2>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>COURSE NAME</th>
-                        <th>ELIGIBILITY</th>
-                        <th>EXAM ACCEPTED</th>
+                        <th>Entrance Exam</th>
+                        <th>Eligibility Criteria</th>
+                    </tr>
+                </thead>
+                 <tbody>
+        <?php foreach ($entrance_exams as $i => $exam): ?>
+            <tr>
+                <td width="30%"><?= htmlspecialchars($exam) ?></td>
+                <td><?= htmlspecialchars($eligibility[$i] ?? '') ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+            </table>
+        </div>
+
+        <!-- Eligibility Criteria Section -->
+        <h2 class="section-title">Exam Pattern :</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sections</th>
+                        <th>Allotted Time</th>
+                        <th>Questions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>MBA</td>
-                        <td>50% Marks in Graduation + two years of industry experience is desirable.</td>
-                        <td>NMAT</td>
-                    </tr>
+                  <?php foreach ($sections as $i => $section): ?>
+            <tr>
+                <td><?= htmlspecialchars($section) ?></td>
+                <td><?= htmlspecialchars($times[$i] ?? '') ?></td>
+                <td><?= htmlspecialchars($questions[$i] ?? '') ?></td>
+            </tr>
+        <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
 
         <!-- Admission Process Section -->
-        <h2 class="section-title">NARSEE MONJEE INDORE MBA COURSE ADMISSION PROCESS:</h2>
+        <h2 class="section-title">Registration Process :</h2>
         <div class="admission-process">
-            <p>MBA admission process at NMIMS involves <span class="highlight">two stages</span>.</p>
-            <p><strong>Stage 1:</strong> First, candidates must take the <span class="highlight">NMAT by GMAC™ test</span> mandatory for applying to NMIMS programs across various campuses. Scores are sent directly to NMIMS by GMAC. Shortlisting is based on sectional and overall NMAT scores.</p>
-            <p><strong>Stage 2:</strong> Shortlisted candidates participate in a <span class="highlight">Psychometric Test, Written Aptitude Test (WAT), and Personal Interview (PI)</span>, conducted in person. Call letters are available on the candidate's dashboard. Final selection is based on NMAT scores, WAT/PI performance, academic records, and work experience. NMIMS decisions on the merit list and seat allocation are final.</p>
+           <?php foreach ($RegistrationProcess as $i => $RegistrationProces): ?>
+            <p><strong>Stage <?= $i; ?>:</strong><?= htmlspecialchars($RegistrationProces) ?></p>
+           
+        <?php endforeach; ?>
+          
+        </div>
+         <!-- Admission Process Section -->
+        <h2 class="section-title">Documents Required at the time of Admission :</h2>
+        <div class="admission-process">
+           <?php foreach ($DocumentsRequired as $i => $DocumentsRequireds): ?>
+            <p><strong>Stage <?= $i; ?>:</strong><?= htmlspecialchars($DocumentsRequireds) ?></p>
+           
+        <?php endforeach; ?>
+          
         </div>
 
         <!-- Selection Parameters Section -->
-        <h2 class="section-title">SELECTION PARAMETERS:</h2>
+        <h2 class="section-title">Accepting Colleges Seats Intake:</h2>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>PARAMETER</th>
-                        <th>WEIGHTAGE</th>
+                        <th>Name of the program</th>
+                        <th>Campus</th>
+                        <th>Total Seats</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>NMAT Exam Score</td>
-                        <td>50%</td>
-                    </tr>
-                    <tr>
-                        <td>Watson Test</td>
-                        <td>20%</td>
-                    </tr>
-                    <tr>
-                        <td>Personal Interview</td>
-                        <td>10%</td>
-                    </tr>
-                    <tr>
-                        <td>Work Experience</td>
-                        <td>10%</td>
-                    </tr>
+                    <?php foreach ($Nameprogram as $i => $Nameprograms): ?>
+            <tr>
+                <td><?= htmlspecialchars($Nameprograms) ?></td>
+                <td><?= htmlspecialchars($Campus[$i] ?? '') ?></td>
+                <td><?= htmlspecialchars($Seats[$i] ?? '') ?></td>
+            </tr>
+        <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
-         <h2 class="section-title">NMIMS INDORE MBA FEE 2024-26:</h2>
+         <h2 class="section-title">Fees 2024-26:</h2>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>COURSE NAME</th>
+                        <th>Program</th>
                        
-                        <th>TUTION FEES</th>
+                        <th>Fees</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>MBA</td>
-                  
-                        <td>90000/- Anually</td>
-                    </tr>
+                     <?php foreach ($Program as $i => $Programs): ?>
+            <tr>
+                <td width="30%"><?= htmlspecialchars($Programs) ?></td>
+                <td><?= htmlspecialchars($fee[$i] ?? '') ?></td>
+            </tr>
+        <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
-         <h2 class="section-title">Hostel Fees For MBA in Narsee Monjee Indore:</h2>
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>COURSE NAME</th>
-                       
-                        <th>TUTION FEES</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>MBA</td>
-                  
-                        <td>1,83,500/- (For 10 Months)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-         <h2 class="section-title">NMIMS Indore Average Package and MBA Placement 2021-23:</h2>
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>PARTICULARS</th>
-                       
-                        <th>STATISTICS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Highest Package</td>
-                        <td>16,80,000/- LPA</td>
-                    </tr>
-                    <tr>
-                        <td>Top 10%</td>
-                        <td>15,70,000/- LPA</td>
-                    </tr>
-                    <tr>
-                        <td>Top 20%</td>
-                        <td>14,60,000/- LPA</td>
-                    </tr>
-                    <tr>
-                        <td>Top 50%</td>
-                        <td>13,80,000/- LPA</td>
-                    </tr>
-                    <tr>
-                        <td>Average Package</td>
-                        <td>12,50,000/- LPA</td>
-                    </tr>
-                    <tr>
-                        <td>Median Package</td>
-                        <td>12,40,000/- LPA</td>
-                    </tr>
-                    <tr>
-                        <td>Gender Ratio</td>
-                        <td>Male:40%, Female: 60%</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-         <h2 class="section-title">Hostel Fees For MBA in Narsee Monjee Indore:</h2>
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>EXAM NAME</th>
-                       
-                        <th>CUT OFF (Out of 360 Marks)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>NMAT</td>
-                  
-                        <td>206 Marks</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-    </div>
+       
     <div class="container mt-4 card">
            <!-- Google News Banner -->
         <div class="google-news-banner mt-4">
@@ -679,113 +641,39 @@ $questions = json_decode($desc['Questions'], true);
         <div class="mb-4">
             <h5 class="mb-3">TOP RECRUITERS:</h5>
             <div class="top-recruiters d-flex flex-wrap align-items-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Crisil_logo.svg/1200px-Crisil_logo.svg.png" alt="CRISIL">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/EY_logo_2019.svg/1200px-EY_logo_2019.svg.png" alt="EY">
+                <img src="<?php echo base_url("assets/assets/images/CRISIL.PNG"); ?>" alt="CRISIL">
+                <img src="<?php echo base_url("assets/assets/images/EY.PNG"); ?>" alt="EY">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_logo.svg/2560px-Tata_logo.svg.png" alt="TATA">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/BigBasket_Logo.png/220px-BigBasket_Logo.png" alt="Big Basket">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/ICICI_Bank_Logo.svg/2560px-ICICI_Bank_Logo.svg.png" alt="ICICI">
-            </div>
-        </div>
-
-        <!-- MBA Ranking -->
-        <div class="mb-4">
-            <h5 class="mb-3">NARSEE MONJEE INSTITUTE OF MANAGEMENT STUDIES INDORE MBA RANKING:</h5>
-            <blockquote>
-                SVKM's Narsee Monjee Institute of Management Studies, Indore Which Comes Under NMIMS (Deemed to be University) Among Top MBA Colleges in Madhya Pradesh.
-            </blockquote>
-        </div>
-
-        <!-- Facilities -->
-        <div class="mb-4">
-            <h5 class="mb-3">FACILITIES:</h5>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="facility-item">
-                        <i class="fas fa-landmark facility-icon"></i> Auditorium
-                    </div>
-                    <div class="facility-item">
-                        <i class="fas fa-utensils facility-icon"></i> Cafeteria
-                    </div>
-                    <div class="facility-item">
-                        <i class="fas fa-dumbbell facility-icon"></i> Gym
-                    </div>
-                    <div class="facility-item">
-                        <i class="fas fa-first-aid facility-icon"></i> Medical Facilities
-                    </div>
-                    <div class="facility-item">
-                        <i class="fas fa-book facility-icon"></i> Library
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="facility-item">
-                        <i class="fas fa-shuttle-van facility-icon"></i> Shuttle Service
-                    </div>
-                    <div class="facility-item">
-                        <i class="fas fa-running facility-icon"></i> Sport Complex
-                    </div>
-                    <div class="facility-item">
-                        <i class="fas fa-wifi facility-icon"></i> Wi-Fi Campus
-                    </div>
-                    <div class="facility-item">
-                        <i class="fas fa-users facility-icon"></i> Alumni Associations
-                    </div>
-                    <div class="facility-item">
-                        <i class="fas fa-university facility-icon"></i> Banks Facilities
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Faculty -->
-        <div class="mb-4">
-            <h5 class="mb-3">TOP FACULTY AND TEACHING STAFF OF NMIMS INDORE:</h5>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="faculty-card">
-                        <h6>Dr. Suman Chakraborty</h6>
-                        <p class="mb-0">Prof. Business Economics</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="faculty-card">
-                        <h6>CMA Dr. Niranjan Shastri</h6>
-                        <p class="mb-0">Prof. Finance</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="faculty-card">
-                        <h6>Dr. Monica Bhatia</h6>
-                        <p class="mb-0">Prof. Marketing</p>
-                    </div>
-                </div>
+                <img src="<?php echo base_url("assets/assets/images/bigbasket.png"); ?>" alt="Big Basket">
+                <img src="<?php echo base_url("assets/assets/images/icici.jfif"); ?>" alt="ICICI">
             </div>
         </div>
 
         <!-- Contact Form -->
         <div class="contact-form">
             <h3>To Know Cut off (Open-Close Rank), Counselling Updates, Management Quota Admission Details Fill the Form</h3>
-            <form>
+            <form method="POST" action="<?php echo site_url('homeservice/serviceorder');?>" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Name">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                 </div>
                 <div class="mb-3">
                     <label for="contact" class="form-label">Contact No</label>
-                    <input type="text" class="form-control" id="contact" placeholder="Enter your Mobile No.">
+                    <input type="text" class="form-control" id="contact" name="mobile" placeholder="Enter your Mobile No.">
                 </div>
                 <div class="mb-3">
                     <label for="course" class="form-label">Courses are you Looking For?</label>
-                    <select class="form-select" id="course">
-                        <option selected>-Select Course-</option>
-                        <option value="mba">MBA</option>
-                        <option value="bba">BBA</option>
-                        <option value="bcom">B.Com</option>
-                        <option value="btech">B.Tech</option>
+                    <select class="form-select" id="course" name="service">
+                        <?php if(!empty($services)){
+                            foreach($services as $service){ ?>
+                              <option value="<?php echo $service['id']; ?>"><?php echo $service['name']; ?></option>
+                      <?php  } }?>
+                        
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" rows="4" placeholder="Enter Your Query!"></textarea>
+                    <textarea class="form-control" name="message" id="message" rows="4" placeholder="Enter Your Query!"></textarea>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-submit">
@@ -799,24 +687,15 @@ $questions = json_decode($desc['Questions'], true);
         <div class="mb-4">
             <h5 class="mb-3">Related Posts</h5>
             <div class="row">
+                <?php if(!empty($blog)){ 
+                    foreach($blog as $post){ ?>
                 <div class="col-md-4">
                     <div class="related-post">
-                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sbGVnZSUyMGNhbXB1c3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="SIBM Noida">
-                        <h6>SIBM Noida: MBA Fees, Cut off, Placements, Package, Admission 2024-25</h6>
+                        <img src="<?php echo base_url($post['photos']); ?>" alt="Indore College">
+                        <h6><?php echo $post['name']; ?></h6>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="related-post">
-                        <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sbGVnZSUyMGJ1aWxkaW5nfGVufDB8fDB8fHww&w=1000&q=80" alt="Indore College">
-                        <h6>Indore College of Engineering and Management Pune: Fees, Cut off, Admission 2024</h6>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="related-post">
-                        <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="JBIMS Mumbai">
-                        <h6>JBIMS Mumbai: Cut off, Fees, Courses, Placements, Package, Admission 2024</h6>
-                    </div>
-                </div>
+                <?php } } ?>
             </div>
         </div>
 
@@ -825,25 +704,43 @@ $questions = json_decode($desc['Questions'], true);
             <h5 class="mb-3">LEAVE A REPLY</h5>
             <form>
                 <div class="mb-3">
-                    <textarea class="form-control" rows="5" placeholder="Comment Text*"></textarea>
+                    <textarea class="form-control" rows="5" name="message" placeholder="Comment Text*"></textarea>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        <input type="text" class="form-control" placeholder="Name*">
+                        <input type="text" class="form-control" name="name" placeholder="Name*">
                     </div>
                     <div class="col-md-4">
-                        <input type="email" class="form-control" placeholder="Email*">
+                        <input type="email" class="form-control" name="email" placeholder="Email*">
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" placeholder="Website">
+                        <input type="text" class="form-control" name="subject" placeholder="Website">
                     </div>
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="saveInfo">
-                    <label class="form-check-label" for="saveInfo">Save my name, email, and website in this browser for the next time I comment.</label>
-                </div>
+               
                 <button type="submit" class="btn btn-primary">Post Comment</button>
             </form>
         </div>
     </div>
+    </div>
+    <script>
+  document.querySelector('.share').addEventListener('click', function(e) {
+    e.preventDefault();
+    const currentUrl = window.location.href;
+
+    // Copy to clipboard
+    navigator.clipboard.writeText(currentUrl).then(function() {
+      const msgBox = document.getElementById('copy-msg');
+      msgBox.style.display = 'block';
+
+      // Hide after 2 seconds
+      setTimeout(() => {
+        msgBox.style.display = 'none';
+      }, 2000);
+    }).catch(function(err) {
+      alert('Failed to copy link: ' + err);
+    });
+  });
+</script>
+    
  

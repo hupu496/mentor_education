@@ -14,7 +14,19 @@
 						<form action="<?php echo base_url('admin/searchservice/insert_blog');?>" enctype="multipart/form-data" method="POST">
                         	<div class="row form-group">
                                 <div class="col-md-1"></div>
-                                <div class="col-sm-12 col-md-6">                                
+                                <div class="col-sm-12 col-md-6"> 
+                                    <div class="row form-group">
+                                        <label class="col-sm-12 col-md-2 col-form-label">Select Courses<span class="text-danger">*</span></label>
+                                        <div class="col-sm-12 col-md-8">
+                                       <select name="courses" id="" class="form-control">
+                                        <?php if(!empty($courses)){
+                                            foreach($courses as $course){ ?>
+                                             <option value="<?php echo $course['id']; ?>"><?php echo $course['name']; ?></option>
+                                     <?php   } } ?>
+                                       
+                                       </select>
+                                        </div>
+                                        </div>                              
                                         <div class="row form-group">
                                         <label class="col-sm-12 col-md-2 col-form-label">Blog Name<span class="text-danger">*</span></label>
                                         <div class="col-sm-12 col-md-8">

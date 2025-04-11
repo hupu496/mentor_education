@@ -41,9 +41,7 @@
             <div class="col-lg-4">
                 <!-- Search Box -->
                 <div class="card mb-4">
-                    <div class="card-body" style="
-    background: radial-gradient(#0ea05d, transparent);
-">
+                    <div class="card-body" style="background: radial-gradient(#0ea05d, transparent);">
                         <form>
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search the site">
@@ -60,18 +58,14 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled">
+                            <?php if(!empty($blog)){
+                                foreach($blog as $key => $value){   ?>
+                        
                             <li class="mb-3">
-                                <a href="#" class="text-decoration-none">NMIMS Indore MBA Fees, NMAT Cut off, Placement, Package, Admission 2024</a>
+                                <a href="<?php echo base_url('homeservice/blog_description/'.$value['id']); ?>" class="" style="color:blue;"><?php echo $value['name']; ?></a>
                             </li>
-                            <li class="mb-3">
-                                <a href="#" class="text-decoration-none">NMAT Exam 2024: Registration, Exam Date, Syllabus, Seats, Fees, Admission</a>
-                            </li>
-                            <li class="mb-3">
-                                <a href="#" class="text-decoration-none">KJ Somaiya Institute of Management Cut off, MBA Fees, Package, Admission 2025</a>
-                            </li>
-                            <li class="mb-3">
-                                <a href="#" class="text-decoration-none">JIET Medical College, Jodhpur Cut off, MBBS Fees, Admission 2024</a>
-                            </li>
+                            
+                            <?php }}?>
                         </ul>
                     </div>
                 </div>

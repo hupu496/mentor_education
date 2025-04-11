@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       $.ajax({
         type: 'POST',
-        url: 'http://localhost/mentor_education/homeservice/serviceorder', // Update here
+        url: '<?php echo base_url('serviceorder'); ?>', // Update here
         data: $(this).serialize(),
         dataType: 'json',
         success: function (response) {
@@ -215,6 +215,84 @@ document.addEventListener("DOMContentLoaded", function() {
               text: response.message
             });
             $('#serviceOrderForm')[0].reset();
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: response.message
+            });
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("AJAX Error:", status, error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Request Failed',
+            text: 'Something went wrong. Please try again.',
+            footer: '<pre>' + xhr.responseText + '</pre>'
+          });
+        }
+      });
+    });
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $('#serviceOrderForm1').on('submit', function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url('serviceorders'); ?>', // Update here
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function (response) {
+          console.log("Server response:", response);
+          if (response.status === 'success') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Success!',
+              text: response.message
+            });
+            $('#serviceOrderForm2')[0].reset();
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: response.message
+            });
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("AJAX Error:", status, error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Request Failed',
+            text: 'Something went wrong. Please try again.',
+            footer: '<pre>' + xhr.responseText + '</pre>'
+          });
+        }
+      });
+    });
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $('#contactsave').on('submit', function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url('contactsave'); ?>', // Update here
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function (response) {
+          console.log("Server response:", response);
+          if (response.status === 'success') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Success!',
+              text: response.message
+            });
+            $('#contactsave')[0].reset();
           } else {
             Swal.fire({
               icon: 'error',

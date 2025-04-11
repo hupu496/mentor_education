@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2025 at 07:53 AM
+-- Generation Time: Apr 11, 2025 at 06:51 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_teratech`
+-- Database: `db_mentoredu`
 --
 
 -- --------------------------------------------------------
@@ -807,6 +807,7 @@ INSERT INTO `area` (`id`, `name`, `type`, `parent_id`, `status`) VALUES
 
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
+  `courses` int(11) NOT NULL,
   `name` text NOT NULL,
   `description` text NOT NULL,
   `photos` text NOT NULL,
@@ -818,9 +819,49 @@ CREATE TABLE `blog` (
 -- Dumping data for table `blog`
 --
 
-INSERT INTO `blog` (`id`, `name`, `description`, `photos`, `added_on`, `status`) VALUES
-(1, 'Aadarsh', '', '/assets/uploads/blog/1732094675.jpg', '2024-11-20', 1),
-(2, 'sdfgsfd', 'gsdfgsdfgsdfg', '/assets/uploads/blog/1737183515.jpg', '2025-01-18', 1);
+INSERT INTO `blog` (`id`, `courses`, `name`, `description`, `photos`, `added_on`, `status`) VALUES
+(1, 1, 'Aadarsh', '', '/assets/uploads/blog/1732094675.jpg', '2024-11-20', 1),
+(2, 1, 'sdfgsfd', 'gsdfgsdfgsdfg', '/assets/uploads/blog/1737183515.jpg', '2025-01-18', 1),
+(3, 4, 'AACCC Ayush PG Counselling 2024: Get All Details Here', 'AACCC PG Counselling 2024 Schedule For BAMS Ayurveda PG Admission For All India Quota: First Round AACCC Ayush PG Counselling 2024 Schedule: Events Dates Verification of Tentative Seat Matrix …', '/assets/uploads/blog/1744175000.png', '2025-04-09', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog_desc`
+--
+
+CREATE TABLE `blog_desc` (
+  `id` int(11) NOT NULL,
+  `blog_id` int(11) NOT NULL,
+  `exam_name` text NOT NULL,
+  `Exam_Particulars` text NOT NULL,
+  `ExamDetails` text NOT NULL,
+  `Events` text NOT NULL,
+  `Dates` text NOT NULL,
+  `EntranceExam` text NOT NULL,
+  `EligibilityCriteria` text NOT NULL,
+  `Sections` text NOT NULL,
+  `AllottedTime` text NOT NULL,
+  `Questions` text NOT NULL,
+  `RegistrationProcess` text NOT NULL,
+  `DocumentsRequired` text NOT NULL,
+  `Nameprogram` text NOT NULL,
+  `Campus` text NOT NULL,
+  `Seats` text NOT NULL,
+  `Program` text NOT NULL,
+  `fee` text NOT NULL,
+  `added_on` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blog_desc`
+--
+
+INSERT INTO `blog_desc` (`id`, `blog_id`, `exam_name`, `Exam_Particulars`, `ExamDetails`, `Events`, `Dates`, `EntranceExam`, `EligibilityCriteria`, `Sections`, `AllottedTime`, `Questions`, `RegistrationProcess`, `DocumentsRequired`, `Nameprogram`, `Campus`, `Seats`, `Program`, `fee`, `added_on`, `status`) VALUES
+(1, 1, 'NMAT Exam 2024 By GMAC: Registration Started, Check Important Dates, Cutoff, Registration Fees, Eligibility Criteria', '[\"Exam Name\",\"Conducting Body\",\"Exam Level\",\"Exam Mode\"]', '[\"NMAT - Narsee Monjee Aptitude Test\",\"GMAC (Graduate Management Admission Council)\",\"National\",\"CBT - Computer Based Test (from Centers)\"]', '[\"NMAT 2024 Application\",\"Last Date for Application of NMAT 2024\"]', '[\"1st August 2024\",\"10th October 2024\"]', '[\"NMAT 2024 by GMAC\"]', '[\"1) Completed graduation under 10+2+3 \\/ 10+2+4 pattern in any stream. 2) Secured a minimum of 50% aggregate marks in the UG final year. Candidates who are in the final year of their graduation and awaiting results are also eligible to apply\"]', '[\"Language Skills\",\"Quantitative Skills\",\"Logical Reasoning\"]', '[\"28 Minutes\",\"52 Minutes\",\"40 Minutes\"]', '[\"36 MCQ Questions\",\"36 MCQ Questions\",\"36 MCQ Questions\"]', '[\"Visit at NMAT official website that is www.nmat.org.\",\"Click on the \\u2018Register Now\\u2019 option.\",\"Create an account by filling all the required details.\",\"After creating account, you will receive login credentials in the inbox of your registered E-mail ID.\",\" Access the NMAT 2024 form on the official website and login using received credentials.\",\"Fill in all the required details.\",\"Upload the required documents in the specified formats.\",\"Complete the application process by paying the registration fees.\"]', '[\"10th Marksheet or Passing Certificate\",\"12th Marksheet or Passing Certificate\",\"Degree Marksheet separately for each semester\\/ trimester.\",\"Degree Certificate\",\"Provisional Degree Certificate\\/ Passing Certificate (If degree certificate is not available )\",\"Post Graduate Degree Marksheet, wherever applicable\",\"Post Graduate Degree Certificate, wherever applicable\",\"AIU Certificate\",\"Migration Certificate\",\"Eligibility Certificate (If required)\",\"Work Experience Certificate, latest salary slip and the bank statement\",\"Medical Fitness Certificate\",\"Mediclaim Policy\",\"Kindly keep below details available before filling admission form: 1) ABC ID (Academic Bank of Credits) ( Please visit website for creating ID : abcidcard.co)\",\"Note: The name on the Aadhaar card and NMIMS registration \\/ admission form should be identical. Original\\/s documents will be required for verification before program commencement.\"]', '[\"MBA (program having a major in any one of the following areas: Business Environment & Strategy, Finance, Marketing, Communications, Operations and Data Science, Economics, Human Resources & Behavioural Sciences)\",\"MBA in Human Resource\",\"MBA in Business Analytics\"]', '[\"Mumbai\",\"Mumbai\",\"Mumbai\"]', '[\"600\",\"120\",\"120\"]', '[\"MBA \\/ MBA HR Program (Mumbai)\",\"MBA Pharmaceutical Management (Mumbai)\",\"MBA Bangalore \\/ Hyderabad & Navi Mumbai\"]', '[\"Rs. 12,50,000\\/-\",\"Rs. 8,00,000\\/-\",\"Rs. 10,50,000\\/-\"]', '2025-04-06 00:00:00', 1),
+(2, 1, 'NMAT Exam 2024 By GMAC: Registration Started, Check Important Dates, Cutoff, Registration Fees, Eligibility Criteria', '[\"Exam Name\",\"Conducting Body\",\"Exam Level\",\"Exam Mode\"]', '[\"NMAT - Narsee Monjee Aptitude Test\",\"GMAC (Graduate Management Admission Council)\",\"National\",\"CBT - Computer Based Test (from Centers)\"]', '[\"NMAT 2024 Application\",\"Last Date for Application of NMAT 2024\"]', '[\"1st August 2024\",\"10th October 2024\"]', '[\"NMAT 2024 by GMAC\"]', '[\"1) Completed graduation under 10+2+3 \\/ 10+2+4 pattern in any stream. 2) Secured a minimum of 50% aggregate marks in the UG final year. Candidates who are in the final year of their graduation and awaiting results are also eligible to apply\"]', '[\"Language Skills\",\"Quantitative Skills\",\"Logical Reasoning\"]', '[\"28 Minutes\",\"52 Minutes\",\"40 Minutes\"]', '[\"36 MCQ Questions\",\"36 MCQ Questions\",\"36 MCQ Questions\"]', '[\"Visit at NMAT official website that is www.nmat.org.\",\"Click on the \\u2018Register Now\\u2019 option.\",\"Create an account by filling all the required details.\",\"After creating account, you will receive login credentials in the inbox of your registered E-mail ID.\",\" Access the NMAT 2024 form on the official website and login using received credentials.\",\"Fill in all the required details.\",\"Upload the required documents in the specified formats.\",\"Complete the application process by paying the registration fees.\"]', '[\"10th Marksheet or Passing Certificate\",\"12th Marksheet or Passing Certificate\",\"Degree Marksheet separately for each semester\\/ trimester.\",\"Degree Certificate\",\"Provisional Degree Certificate\\/ Passing Certificate (If degree certificate is not available )\",\"Post Graduate Degree Marksheet, wherever applicable\",\"Post Graduate Degree Certificate, wherever applicable\",\"AIU Certificate\",\"Migration Certificate\",\"Eligibility Certificate (If required)\",\"Work Experience Certificate, latest salary slip and the bank statement\",\"Medical Fitness Certificate\",\"Mediclaim Policy\",\"Kindly keep below details available before filling admission form: 1) ABC ID (Academic Bank of Credits) ( Please visit website for creating ID : abcidcard.co)\",\"Note: The name on the Aadhaar card and NMIMS registration \\/ admission form should be identical. Original\\/s documents will be required for verification before program commencement.\"]', '[\"MBA (program having a major in any one of the following areas: Business Environment & Strategy, Finance, Marketing, Communications, Operations and Data Science, Economics, Human Resources & Behavioural Sciences)\",\"MBA in Human Resource\",\"MBA in Business Analytics\"]', '[\"Mumbai\",\"Mumbai\",\"Mumbai\"]', '[\"600\",\"120\",\"120\"]', '[\"MBA \\/ MBA HR Program (Mumbai)\",\"MBA Pharmaceutical Management (Mumbai)\",\"MBA Bangalore \\/ Hyderabad & Navi Mumbai\"]', '[\"Rs. 12,50,000\\/-\",\"Rs. 8,00,000\\/-\",\"Rs. 10,50,000\\/-\"]', '2025-04-06 00:00:00', 1),
+(3, 3, 'AACCC PG Counselling 2024 Schedule For BAMS Ayurveda PG Admission For All India Quota:', '[\"Exam Name\",\"Conducting Body\"]', '[\"NMAT - Narsee Monjee Aptitude Test\",\"GMAC (Graduate Management Admission Council)\"]', '[\"NMAT 2024 Application\",\"NMAT Exam Schedule\",\"NMAT 2024 Exam Dates\"]', '[\"1st August 2024\",\"1st August 2024 - 14th October 2024\",\"5th November 2024 - 20th December 2024\"]', '[\"NMAT 2024 by GMAC\"]', '[\"1) Completed graduation under 10+2+3 \\/ 10+2+4 pattern in any stream. 2) Secured a minimum of 50% aggregate marks in the UG final year. Candidates who are in the final year of their graduation and awaiting results are also eligible to apply\"]', '[\"Language Skills\",\"Quantitative Skills\",\"Logical Reasoning\\t\"]', '[\"28 Minutes\",\"52 Minutes\",\"40 Minutes\"]', '[\"36 MCQ Questions\",\"36 MCQ Questions\",\"36 MCQ Questions\"]', '[\" Visit at NMAT official website that is www.nmat.org.\",\"Click on the \\u2018Register Now\\u2019 option.\",\"Create an account by filling all the required details.\",\"After creating account, you will receive login credentials in the inbox of your registered E-mail ID.\"]', '[\"10th Marksheet or Passing Certificate\",\"12th Marksheet or Passing Certificate\",\"Degree Marksheet separately for each semester\\/ trimester.\",\"Degree Certificate\"]', '[\"MBA (program having a major in any one of the following areas: Business Environment & Strategy, Finance, Marketing, Communications, Operations and Data Science, Economics, Human Resources & Behavioural Sciences)\",\"MBA in Human Resource\",\"MBA in Business Analytics\"]', '[\"Mumbai\\t\",\"Mumbai\",\"Mumbai\"]', '[\"600\",\"120\",\"120\"]', '[\"MBA \\/ MBA HR Program (Mumbai)\",\"MBA Pharmaceutical Management (Mumbai)\"]', '[\"Rs. 12,50,000\\/-\",\"Rs. 8,00,000\\/-\"]', '2025-04-09 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -848,20 +889,62 @@ CREATE TABLE `contact_us` (
 INSERT INTO `contact_us` (`id`, `name`, `mobile`, `email`, `service`, `subject`, `message`, `notifications`, `added_on`, `status`) VALUES
 (3, 'aadarsh', '7999669691', 'aadarsh629@gmail.com', 'Live Puja Darshan', 'mata ki chuki', NULL, 1, '2024-10-13 08:38:28', 1),
 (4, 'sona', '74125896320', 'sona@gmail.com', 'Live Puja Darshan', 'sasdfasdf', NULL, 0, '2024-10-13 08:38:28', 1),
-(5, 'Aadarsh', '7999669691', 'aadarsh629@gmail.com', 'Software & Consultation', 'asdfds', 'fasdf', 0, '2024-11-20 16:54:01', 1);
+(5, 'Aadarsh', '7999669691', 'aadarsh629@gmail.com', 'Software & Consultation', 'asdfds', 'fasdf', 0, '2024-11-20 16:54:01', 1),
+(6, 'fgsdfgdgr', '', 'aadarsh@gmail.com', '', 'dfhgsfdh', 'gdfsgsdfgsd', 1, '2025-04-09 22:16:04', 1),
+(7, 'aadarsh', '7999669691', 'aadarsh629@gmail.com', '', '', 'adsfasdfasdf', 1, '2025-04-11 09:49:50', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faqs`
+-- Table structure for table `couselling`
 --
 
-CREATE TABLE `faqs` (
+CREATE TABLE `couselling` (
   `id` int(11) NOT NULL,
-  `question` text DEFAULT NULL,
-  `answer` text DEFAULT NULL,
-  `status` tinyint(1) DEFAULT 1
+  `name` text NOT NULL,
+  `description` text NOT NULL,
+  `image` text NOT NULL,
+  `url_link` text NOT NULL,
+  `added_on` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `couselling`
+--
+
+INSERT INTO `couselling` (`id`, `name`, `description`, `image`, `url_link`, `added_on`, `status`) VALUES
+(1, 'CUT OFF PACKAGE', 'aasdfasdf', '', 'homeservice/couselling/1', '0000-00-00 00:00:00', 1),
+(2, 'NEET PG PACKAGES', '', '', 'homeservice/couselling/2', '0000-00-00 00:00:00', 1),
+(3, 'NEET UG PACKAGES', '', '', 'homeservice/couselling/3', '0000-00-00 00:00:00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `couselling_blog`
+--
+
+CREATE TABLE `couselling_blog` (
+  `id` int(11) NOT NULL,
+  `couselling_id` int(11) NOT NULL,
+  `heading` text NOT NULL,
+  `cousellingname` text NOT NULL,
+  `description` text NOT NULL,
+  `standard_plan_price` text NOT NULL,
+  `preminum_plan_price` text NOT NULL,
+  `standard_text` text NOT NULL,
+  `premium_text` text NOT NULL,
+  `added_on` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `couselling_blog`
+--
+
+INSERT INTO `couselling_blog` (`id`, `couselling_id`, `heading`, `cousellingname`, `description`, `standard_plan_price`, `preminum_plan_price`, `standard_text`, `premium_text`, `added_on`, `status`) VALUES
+(3, 1, '[\"EET PG counselling is a complex procedure, a lot of information available for free on websites, YouTube, Instagram, and other platforms. However, the authenticity of this information can be a major concern, as no one takes responsibility if the advice does not work out.\"]', 'NEET PG 2024 State/ All India (MD/MS) Counselling Packages For Deemed & Private Institutes Only', '[\"Authentic and Verified Information: We provide accurate, data-driven insights on medical colleges, counselling procedures, category-specific details like fees, cut-offs, and third-party sponsored NRI quota admissions.\"]', '25000', '100000', '[\" RANK AND CUT OFF ANALYSIS BY OUR COUNSELOR (Which College You Get At Your Rank\\/Marks)\"]', '[\" YOU WILL GET ALL THE BENIFITS INCLUDED IN STANDARD PLAN\"]', '2025-04-02 00:00:00', 1),
+(4, 2, '[\"sdfgsdfg\",\"sdfgsdfgsdfg\"]', 'sdfgsdfgsdfg', '[\"sdfgsdfg\",\"sdfgsdf\"]', 'asdfasd', 'fasfdasdff', '[\"asdfasdff\",\"asdffasdf\"]', '[\"asdffasdf\",\"asdfasdfasdf\"]', '2025-04-04 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -890,111 +973,6 @@ INSERT INTO `login` (`id`, `email`, `password`, `register_id`, `salt`, `added_on
 -- --------------------------------------------------------
 
 --
--- Table structure for table `meeting`
---
-
-CREATE TABLE `meeting` (
-  `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `email` text NOT NULL,
-  `phone` text NOT NULL,
-  `whatsapp_no` text NOT NULL,
-  `subject` text NOT NULL,
-  `message` text NOT NULL,
-  `notifications` tinyint(1) NOT NULL DEFAULT 1,
-  `added_on` date NOT NULL DEFAULT current_timestamp(),
-  `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `meeting`
---
-
-INSERT INTO `meeting` (`id`, `name`, `email`, `phone`, `whatsapp_no`, `subject`, `message`, `notifications`, `added_on`, `status`) VALUES
-(4, 'aadarsh', 'aadarsh629@gmail.com', '7999669691', '7412589630', 'color data ', 'askdjfasdfasdf', 1, '2025-01-30', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `our_team`
---
-
-CREATE TABLE `our_team` (
-  `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `position` text NOT NULL,
-  `description` text NOT NULL,
-  `photos` text NOT NULL,
-  `added_on` datetime NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `our_team`
---
-
-INSERT INTO `our_team` (`id`, `name`, `position`, `description`, `photos`, `added_on`, `status`) VALUES
-(6, 'Prabal Wiswas', 'Ceo & CFO', 'I am ceo and co founder of this company and finance execute this and service based compnay above 20 years experience', '/assets/uploads/project/1739534139.png', '2025-02-14 00:00:00', 1),
-(7, 'sdfasdf', 'asdfasdf', 'asdfasdf', '', '2025-02-14 00:00:00', 1),
-(8, 'gsdfgsdf', 'sdfgsdfg', 'sdfgsdfgsfd', '', '2025-02-14 00:00:00', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `review`
---
-
-CREATE TABLE `review` (
-  `id` int(11) NOT NULL,
-  `emp_id` int(11) DEFAULT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `rating` int(11) DEFAULT NULL,
-  `review` text NOT NULL,
-  `added_on` date NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`id`, `emp_id`, `order_id`, `rating`, `review`, `added_on`, `status`) VALUES
-(1, 2, 1, 5, 'Good work in life', '2024-10-12', 2),
-(2, 2, 1, 4, 'good Working performance .', '2024-10-12', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `serviceorder`
---
-
-CREATE TABLE `serviceorder` (
-  `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `email` text NOT NULL,
-  `mobile` text NOT NULL,
-  `query` text NOT NULL,
-  `service` text NOT NULL,
-  `notifications` tinyint(1) NOT NULL DEFAULT 1,
-  `added_on` date NOT NULL DEFAULT current_timestamp(),
-  `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `serviceorder`
---
-
-INSERT INTO `serviceorder` (`id`, `name`, `email`, `mobile`, `query`, `service`, `notifications`, `added_on`, `status`) VALUES
-(1, 'aadarsh', 'aadarsh629@gmail.com', '7999669412', 'sadfasdfasdfasdfasdf', 'Visitor gate Pass', 1, '0000-00-00', 1),
-(2, 'aadarsh', 'aadarsh629@gmail.com', '7999669412', 'sadfasdfasdfasdfasdf', 'Visitor gate Pass', 0, '0000-00-00', 1),
-(3, 'aadarsh', 'aadarsh629@gmail.com', '7999669412', 'sadfasdfasdfasdfasdf', 'Visitor gate Pass', 0, '0000-00-00', 1),
-(4, 'adf', 'adf@gmail.com', 'dfasdf', 'asdfasdf', 'Visitor gate Pass', 0, '2025-01-30', 1),
-(5, 'karan', 'karan@gmail.com', '7999669691', 'asdfasdfasdfasdf', 'Visitor gate Pass', 0, '2025-02-02', 1),
-(6, 'krihsna', 'aadarsh@gmail.com', '7894561230', 'adfadfasdffasfdasdfasdff', 'Head count system', 0, '2025-02-02', 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `services`
 --
 
@@ -1012,54 +990,39 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `name`, `Description`, `url_link`, `image`, `status`) VALUES
-(1, 'Software & Consultation', 'Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.', 'homeservice/service/1', '/assets/uploads/service/1731930477.png', 1),
-(2, 'Web Development', 'Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.', 'homeservice/service/2', '/assets/uploads/service/1731930504.png', 1),
-(3, 'Industrial Electronic', 'Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.', 'homeservice/service/3', '/assets/uploads/service/1731931493.png', 1),
-(4, 'Access and Security', 'Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.dfgdfgdfgdfgfd', 'homeservice/service/4', '/assets/uploads/service/1731931548.jpg', 1),
-(5, 'Hardware & Networking', 'Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.dfgdfgdfgdfgfd', 'homeservice/service/5', '/assets/uploads/service/1731932486.jpg', 1),
-(6, 'Lay Out Designing & Interior', 'ComSys IT is a leader of Lay Out Designing & Interior in India and provide a large number of web services.', 'homeservice/service/6', '/assets/uploads/service/1731932633.jpg', 1);
+(1, 'BAMS(AYURAVEDA)', 'Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.', 'homeservice/service/1', '/assets/uploads/service/1731930477.png', 1),
+(2, 'CP & FCPS', 'Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.', 'homeservice/service/2', '/assets/uploads/service/1731930504.png', 1),
+(3, 'Dental', 'Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.', 'homeservice/service/3', '/assets/uploads/service/1731931493.png', 1),
+(4, 'Engineering', 'Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.dfgdfgdfgdfgfd', 'homeservice/service/4', '/assets/uploads/service/1731931548.jpg', 1),
+(5, 'HOMEOPATHY', 'Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.dfgdfgdfgdfgfd', 'homeservice/service/5', '/assets/uploads/service/1731932486.jpg', 1),
+(6, 'Management', 'ComSys IT is a leader of Lay Out Designing & Interior in India and provide a large number of web services.', 'homeservice/service/6', '/assets/uploads/service/1731932633.jpg', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sub_service`
+-- Table structure for table `service_orders`
 --
 
-CREATE TABLE `sub_service` (
+CREATE TABLE `service_orders` (
   `id` int(11) NOT NULL,
-  `service_id` int(11) NOT NULL,
-  `sub_service` text NOT NULL,
-  `video` text NOT NULL,
-  `Description` text DEFAULT NULL,
-  `proj_images` text DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `sub_service`
---
-
-INSERT INTO `sub_service` (`id`, `service_id`, `sub_service`, `video`, `Description`, `proj_images`, `status`) VALUES
-(1, 1, 'Mata ka chakui', '', NULL, NULL, 1),
-(2, 1, 'satarn ka puja', '', NULL, NULL, 1),
-(3, 1, 'Visitor Gate Pass', 'https://youtu.be/B7-K7ED7zfc?si=_aBVhvT8EqEHF2P3\'', 'Vistor Enttry with mobile no or thumb print and allow access the plant area', '/assets/uploads/project/1732084623.png', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `testimonial`
---
-
-CREATE TABLE `testimonial` (
-  `id` int(11) NOT NULL,
-  `images` text NOT NULL,
   `name` text NOT NULL,
-  `location` text NOT NULL,
-  `description` text NOT NULL,
-  `star` text NOT NULL,
-  `added_on` date NOT NULL,
+  `mobile` text NOT NULL,
+  `service` text NOT NULL,
+  `state` text NOT NULL,
+  `query` text NOT NULL,
+  `created_at` datetime NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service_orders`
+--
+
+INSERT INTO `service_orders` (`id`, `name`, `mobile`, `service`, `state`, `query`, `created_at`, `status`) VALUES
+(12, 'aadarsh', '7999669691', 'CP & FCPS', 'Jharkhand', 'adfasdfasdfsadf', '2025-04-09 09:21:04', 1),
+(13, 'kunal', '7412589630', 'Dental', 'Jharkhand', 'asdfasdfasdf', '2025-04-09 09:22:11', 1),
+(14, 'kunal', '7894561230', 'CP & FCPS', 'Jharkhand', 'fsadfsadfasfdsadf', '2025-04-09 22:13:48', 1),
+(15, 'aadarsh', '7999669691', 'Engineering', '', 'sfasfdasdfasdf', '2025-04-09 22:27:10', 1);
 
 -- --------------------------------------------------------
 
@@ -1089,36 +1052,6 @@ INSERT INTO `users` (`id`, `username`, `password`, `encpassword`, `salt`, `role`
 (1, 'admin', '12345', 'ebe08f46bec8418d7ada76ac16fee3a6', 'anFMrX5j', 1, 'admin', 0, '', '', 1),
 (7, '8210823830', '12345', '16e66e794f4b3dbcbc7787fd59d575d8', 'WBkESA0MRI4dZJfw', 2, '', 2, '', '', 1);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `user_register`
---
-
-CREATE TABLE `user_register` (
-  `id` int(11) NOT NULL,
-  `firstname` text NOT NULL,
-  `lastname` text NOT NULL,
-  `email` text NOT NULL,
-  `password` text NOT NULL,
-  `cpassword` text NOT NULL,
-  `salt` int(11) NOT NULL,
-  `phone` text NOT NULL,
-  `address` text NOT NULL,
-  `aadhar_card` text NOT NULL,
-  `photo` text NOT NULL,
-  `added_on` datetime NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `user_register`
---
-
-INSERT INTO `user_register` (`id`, `firstname`, `lastname`, `email`, `password`, `cpassword`, `salt`, `phone`, `address`, `aadhar_card`, `photo`, `added_on`, `status`) VALUES
-(1, 'sonakshi', 'kumari', 'sonakshi@gmail.com', 'sonakshi@123', '96f9666848355705c41e6d2559910d49', 4, '7894561230', 'adjfasdff', '/assets/register/aadhaar/1728704464.png', '/assets/register/photo/1728704464.png', '2024-10-12 00:00:00', 1),
-(2, 'Somaya', 'kumari', 'somaya@gmail.com', 'somaya@123', 'd22299388d7dc37704999fbfbc1761e8', 0, '7999669691', 'ghatsila', '/assets/register/aadhaar/1728718746.png', '/assets/register/photo/1728718746.png', '2024-10-12 00:00:00', 1);
-
 --
 -- Indexes for dumped tables
 --
@@ -1136,15 +1069,27 @@ ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `blog_desc`
+--
+ALTER TABLE `blog_desc`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contact_us`
 --
 ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `faqs`
+-- Indexes for table `couselling`
 --
-ALTER TABLE `faqs`
+ALTER TABLE `couselling`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `couselling_blog`
+--
+ALTER TABLE `couselling_blog`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1154,57 +1099,21 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `meeting`
---
-ALTER TABLE `meeting`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `our_team`
---
-ALTER TABLE `our_team`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `review`
---
-ALTER TABLE `review`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `serviceorder`
---
-ALTER TABLE `serviceorder`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sub_service`
+-- Indexes for table `service_orders`
 --
-ALTER TABLE `sub_service`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `testimonial`
---
-ALTER TABLE `testimonial`
+ALTER TABLE `service_orders`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_register`
---
-ALTER TABLE `user_register`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1221,19 +1130,31 @@ ALTER TABLE `area`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `blog_desc`
+--
+ALTER TABLE `blog_desc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `faqs`
+-- AUTO_INCREMENT for table `couselling`
 --
-ALTER TABLE `faqs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `couselling`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `couselling_blog`
+--
+ALTER TABLE `couselling_blog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -1242,58 +1163,22 @@ ALTER TABLE `login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `meeting`
---
-ALTER TABLE `meeting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `our_team`
---
-ALTER TABLE `our_team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `review`
---
-ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `serviceorder`
---
-ALTER TABLE `serviceorder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `sub_service`
+-- AUTO_INCREMENT for table `service_orders`
 --
-ALTER TABLE `sub_service`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `testimonial`
---
-ALTER TABLE `testimonial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `service_orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `user_register`
---
-ALTER TABLE `user_register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

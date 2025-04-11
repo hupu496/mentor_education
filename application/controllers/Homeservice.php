@@ -68,6 +68,7 @@ class Homeservice extends CI_Controller {
 	public function about()
 	{
 		$data['title']="About Us";
+        $data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/about',$data);
         $this->load->view('website/footer');
@@ -76,6 +77,7 @@ class Homeservice extends CI_Controller {
 	public function privacy_policy()
 	{
 		$data['title']="Privacy Policy";
+        $data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/privacy_policy',$data);
         $this->load->view('website/footer');
@@ -84,6 +86,7 @@ class Homeservice extends CI_Controller {
 	public function term_condition()
 	{
 		$data['title']="Term & Condition";
+        $data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/term_condition',$data);
         $this->load->view('website/footer');
@@ -93,6 +96,7 @@ class Homeservice extends CI_Controller {
 	{
 		$data['title']="Contact Us";
 		$data['service'] = $this->db->get_where('services',array('status'=>1))->result_array();
+        $data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
 		$this->load->view('website/top-section',$data);
 		$this->load->view('website/contact',$data);
         $this->load->view('website/footer');
@@ -102,7 +106,8 @@ class Homeservice extends CI_Controller {
 	{
 		$data['title']="Admission News";
 		$this->load->view('website/top-section');
-		$this->load->view('website/admission_news');
+        $data['blog'] = $this->db->get_where('blog',array('status'=>1))->result_array();
+		$this->load->view('website/admission_news',$data);
         $this->load->view('website/footer');
        
 	}
@@ -124,8 +129,9 @@ class Homeservice extends CI_Controller {
 	    $data['title']="Services";
         $this->load->view('website/top-section',$data);
 		$where = array('t2.id'=>$id);
-		$data['subservice'] = $this->Homeservice_model->subservice($where);
-		$this->load->view('website/courses',$data);
+		$data['couselling'] = $this->Homeservice_model->couselling($where);
+        $data['service'] = $this->db->get_where('services',array('status'=>1))->result_array();
+		$this->load->view('website/neet_pg_package',$data);
         $this->load->view('website/footer');
     }
 	public function blog_description()
@@ -196,7 +202,117 @@ public function serviceorder()
         echo json_encode(["status" => "error", "message" => "Failed to save data."]);
     }
 }
+public function serviceorders()
+{
+    header('Content-Type: application/json');
 
+    // Optional: allow cross-origin requests if needed
+    // header('Access-Control-Allow-Origin: *');
+
+    if (!$this->input->is_ajax_request()) {
+        echo json_encode(["status" => "error", "message" => "Invalid request type."]);
+        return;
+    }
+
+    $name = $this->input->post('name');
+    $mobile = $this->input->post('mobile');
+    $service = $this->input->post('service');
+    $query = $this->input->post('query');
+
+    // Validate
+    if (empty($name) || empty($mobile)) {
+        echo json_encode(["status" => "error", "message" => "Name and Mobile are required!"]);
+        return;
+    }
+
+    // Save to DB
+    $data = [
+        'name' => $name,
+        'mobile' => $mobile,
+        'service' => $service,
+        'query' => $query,
+        'created_at' => date('Y-m-d H:i:s')
+    ];
+
+    if ($this->db->insert('service_orders', $data)) {
+        echo json_encode(["status" => "success", "message" => "Form submitted successfully!"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Failed to save data."]);
+    }
+}
+public function contactsave()
+{
+    header('Content-Type: application/json');
+
+    // Optional: allow cross-origin requests if needed
+    // header('Access-Control-Allow-Origin: *');
+
+    if (!$this->input->is_ajax_request()) {
+        echo json_encode(["status" => "error", "message" => "Invalid request type."]);
+        return;
+    }
+
+    $name = $this->input->post('name');
+    $mobile = $this->input->post('mobile');
+    $email = $this->input->post('email');
+    $message = $this->input->post('message');
+
+    // Validate
+    if (empty($name) || empty($mobile)) {
+        echo json_encode(["status" => "error", "message" => "Name and Mobile are required!"]);
+        return;
+    }
+
+    // Save to DB
+    $data = [
+        'name' => $name,
+        'mobile' => $mobile,
+        'email' => $email,
+        'message' => $message,
+        'added_on' => date('Y-m-d H:i:s')
+    ];
+
+    if ($this->db->insert('contact_us', $data)) {
+        echo json_encode(["status" => "success", "message" => " submitted successfully! Contact Soon"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Failed to save data."]);
+    }
+}
+public function leavereply()
+{
+    header('Content-Type: application/json');
+
+    // Optional: allow cross-origin requests if needed
+    // header('Access-Control-Allow-Origin: *');
+
+    if (!$this->input->is_ajax_request()) {
+        echo json_encode(["status" => "error", "message" => "Invalid request type."]);
+        return;
+    }
+
+    $name = $this->input->post('name');
+	$email = $this->input->post('email');
+	$subject = $this->input->post('subject');
+	$message = $this->input->post('message');
+
+    // Validate
+    
+		 $data = [
+        'name' => $name,
+        'email' => $email,
+        'subject' => $subject,
+        'message' => $message,
+        'added_on' => date('Y-m-d H:i:s')
+    ];
+	 if ($this->db->insert('contact_us', $data)) {
+        echo json_encode(["status" => "success", "message" => "submitted successfully Contact Soon!"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Failed to save data."]);
+    }
+	
+
+   
+}
 
 public function fetch() {
         $query = $this->input->post('query');
@@ -244,18 +360,6 @@ public function fetch() {
     }
     exit;
 }
-    public function contactsave(){
-		$data = $this->input->post();
-		$data['added_on'] = date('Y-m-d');
-		$query = $this->db->insert('contact_us',$data);
-		if($query){
-			$this->session->set_flashdata("web_msg","Contact Save Successfully!!");
-		}
-		else{
-			$this->session->set_flashdata('web_err_msg', "Contact Save failed ");
-		}
-		redirect('contact');
-  }
   public function blog()
 	{
 	

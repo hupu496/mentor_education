@@ -1,4 +1,13 @@
+<?php 
+$desc = $couselling;
 
+// Decode JSON
+$heading = json_decode($desc['heading'], true);
+$description = json_decode($desc['description'], true);
+$standard_text = json_decode($desc['standard_text'], true);
+$premium_text = json_decode($desc['premium_text'], true);
+
+?>
     <style>
                body {
      font-family: "Roboto", sans-serif;
@@ -375,6 +384,61 @@
         .newsletter-form .btn:hover {
             background-color: #f8f9fa;
         }
+        .enquire-form {
+    max-width: 500px; /* Limit width */
+    margin: 50px auto; /* Center the form */
+    padding: 20px;
+    background: #3f98fd;
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    /* text-align: center; */
+}
+
+/* Submit Button: Centered & Block Style */
+.enquire-form .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #f5f5f5;
+    color: #0d6efd;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.enquire-form .btn-submit:hover {
+    background-color: #084298;
+}
+        
+        .enquire-form h3 {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .form-control {
+            margin-bottom: 15px;
+        }
+         .card{
+            box-shadow: 0px 0px 10px #adb5bd;
+        }
+         .enquire-forms {
+  
+    margin: 50px auto; /* Center the form */
+    padding: 20px;
+    background: #3f98fd;
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    /* text-align: center; */
+}
     </style>
 </head>
 <body>
@@ -383,8 +447,8 @@
     <div class="container my-4 card">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">NEET PG Packages</li>
+                <li class="breadcrumb-item"><a href="<?php echo base_url('/'); ?>" style="color:black;">Home</a></li>
+                <li class="breadcrumb-item active"><?php echo $couselling['name']; ?></li>
             </ol>
         </nav>
 
@@ -392,29 +456,35 @@
 
         <div class="info-box mb-5">
             <p class="mb-3">
-                <strong>NEET PG counselling</strong> is a complex procedure. A lot of information available for free on websites, YouTube, Instagram, and other platforms. However, the authenticity of this information can be a major concern, as no one takes responsibility if the advice does not work out.
+                <strong><?php echo $couselling['name']; ?></strong> 
             </p>
-            <p class="mb-3">
-                If you have the time and are willing to navigate through various free resources, then you may not need Mentor Education's paid counselling services.
+            <?php if(!empty($heading)){
+            foreach ($heading as $key => $value) { ?>
+               <p class="mb-3">
+               <?= htmlspecialchars($value) ?>
             </p>
-            <p class="mb-0">
-                However, if you lack the time to explore multiple sources and want authentic, comprehensive, and data-driven information about medical colleges, counselling processes, and category-specific details like fees and cut-offs, subscribing to our paid services could be a valuable investment for you.
-            </p>
+            <?php } }
+              ?>
+            
+            
         </div>
 
-        <h3 class="text-center mb-4">NEET PG 2024 STATE/ ALL INDIA (MD/MS) COUNSELLING PACKAGES FOR DEEMED & PRIVATE INSTITUTES ONLY</h3>
+        <h3 class="text-center mb-4"><?php echo $couselling['cousellingname']; ?></h3>
 
         <div class="row g-4">
             <div class="col-md-6">
                 <div class="pricing-card">
                     <div class="pricing-header bg-light">
                         <h4>STANDARD PLAN</h4>
-                        <div class="price">₹25000</div>
+                        <div class="price">₹<?php echo $couselling['standard_plan_price']; ?></div>
                     </div>
                     <ul class="feature-list">
-                        <li>RANK AND CUT OFF ANALYSIS BY OUR COUNSELLOR</li>
-                        <li>24*7 ALERT FOR COUNSELLING NOTIFICATION</li>
-                        <li>DEDICATED PERSONAL COUNSELLOR</li>
+                        <?php if(!empty($standard)){
+                         foreach ($standard_text as $key => $value) {  ?>
+                        <li>  <?= htmlspecialchars($value) ?></li>
+                      <?php  } } ?>
+                        
+                       
                     </ul>
                 </div>
             </div>
@@ -422,16 +492,64 @@
                 <div class="pricing-card">
                     <div class="pricing-header bg-primary text-white">
                         <h4>PREMIUM PLAN</h4>
-                        <div class="price text-white">₹100000</div>
+                        <div class="price text-white">₹<?php echo $couselling['preminum_plan_price']; ?></div>
                     </div>
                     <ul class="feature-list">
-                        <li>ALL THE BENEFITS INCLUDED IN STANDARD PLAN</li>
-                        <li>COUNSELLING BY OUR CHIEF COUNSELLOR (UNLIMITED SESSION)</li>
-                        <li>DOCUMENTATION SUPPORT FOR COUNSELLING</li>
+                         <?php if(!empty($premium_text)){ 
+                            foreach ($premium_text as $key => $value) {  ?>
+                        <li>  <?= htmlspecialchars($value) ?></li>
+                      <?php  } }?>
+                        
                     </ul>
                 </div>
             </div>
+            
         </div>
+
+        <div class="col-md-12 enquire-forms">
+            <h3 class="text-center">WHY US !</h3>
+        <ul class="feature-list">
+                         <?php if(!empty($description)){  foreach ($description as $key => $value) {  ?>
+                        <li>  <?= htmlspecialchars($value) ?></li>
+                      <?php  } }?>
+                        
+                    </ul>
+        </div>
+         <div class="enquire-form">
+    <h3>To Know Cut off (Open-Close Rank) Details, Fill the Form</h3>
+    <form id="serviceOrderForm1">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Name">
+        </div>
+        <div class="mb-3">
+            <label for="mobile" class="form-label">Mobile No</label>
+            <input type="tel" class="form-control" name="mobile" placeholder="Enter your Mobile No" maxlength="10" required
+       oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+       pattern="[0-9]{10}" title="Enter a 10-digit mobile number only">
+        </div>
+        <div class="mb-3">
+            <label for="course" class="form-label">Courses are you Looking For?</label>
+            <select class="form-control" name="service">
+                  <option>Select Course</option>
+                <?php if(!empty($service)){
+                    
+                    foreach ($service as $key => $value) { ?>
+                     
+                        <option value="<?php echo $value['name']; ?>"><?php echo $value['name']; ?></option>
+                   <?php }
+                } ?>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea name="message" cols="5" rows="5" name="query" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <button class="btn-submit" type="submit"><i class="fas fa-arrow-right"></i>SUBMIT</button>
+        </div>
+    </form>
+</div>
     </div>
    
 

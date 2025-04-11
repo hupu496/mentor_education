@@ -62,6 +62,9 @@ $route['blog'] = 'homeservice/blog';
 $route['our_team']='homeservice/our_team';
 $route['blog_description'] = 'homeservice/blog_description';
 $route['serviceorder'] = 'homeservice/serviceorder';
+$route['serviceorders'] = 'homeservice/serviceorders';
+$route['leavereply'] = 'homeservice/leavereply';
+$route['contactsave'] = 'homeservice/contactsave';
 $route['admission_news'] = 'homeservice/admission_news';
 $route['filters'] = 'homeservice/fetch';
 

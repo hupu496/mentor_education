@@ -652,28 +652,30 @@ $encoded_msg = urlencode("Check this out!");
         <!-- Contact Form -->
         <div class="contact-form">
             <h3>To Know Cut off (Open-Close Rank), Counselling Updates, Management Quota Admission Details Fill the Form</h3>
-            <form method="POST" action="<?php echo site_url('homeservice/serviceorder');?>" enctype="multipart/form-data">
+            <form id="serviceOrderForm1">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                 </div>
                 <div class="mb-3">
                     <label for="contact" class="form-label">Contact No</label>
-                    <input type="text" class="form-control" id="contact" name="mobile" placeholder="Enter your Mobile No.">
+                    <input type="text" class="form-control" id="contact" name="mobile" placeholder="Enter your Mobile No." maxlength="10" required
+       oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+       pattern="[0-9]{10}" title="Enter a 10-digit mobile number only">
                 </div>
                 <div class="mb-3">
                     <label for="course" class="form-label">Courses are you Looking For?</label>
-                    <select class="form-select" id="course" name="service">
+                    <select class="form-select" id="service" name="service">
                         <?php if(!empty($services)){
                             foreach($services as $service){ ?>
-                              <option value="<?php echo $service['id']; ?>"><?php echo $service['name']; ?></option>
+                              <option value="<?php echo $service['name']; ?>"><?php echo $service['name']; ?></option>
                       <?php  } }?>
                         
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" name="message" id="message" rows="4" placeholder="Enter Your Query!"></textarea>
+                    <textarea class="form-control" name="query" id="message" rows="4" placeholder="Enter Your Query!"></textarea>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-submit">
@@ -702,7 +704,7 @@ $encoded_msg = urlencode("Check this out!");
         <!-- Comment Section -->
         <div class="comment-section">
             <h5 class="mb-3">LEAVE A REPLY</h5>
-            <form>
+            <form id="serviceOrderForm2">
                 <div class="mb-3">
                     <textarea class="form-control" rows="5" name="message" placeholder="Comment Text*"></textarea>
                 </div>
@@ -739,6 +741,45 @@ $encoded_msg = urlencode("Check this out!");
       }, 2000);
     }).catch(function(err) {
       alert('Failed to copy link: ' + err);
+    });
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $('#serviceOrderForm2').on('submit', function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url('leavereply'); ?>', // Update here
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function (response) {
+          console.log("Server response:", response);
+          if (response.status === 'success') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Success!',
+              text: response.message
+            });
+            $('#serviceOrderForm2')[0].reset();
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: response.message
+            });
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("AJAX Error:", status, error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Request Failed',
+            text: 'Something went wrong. Please try again.',
+            footer: '<pre>' + xhr.responseText + '</pre>'
+          });
+        }
+      });
     });
   });
 </script>

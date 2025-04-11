@@ -183,7 +183,7 @@
     <div class="container my-4">
           <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-decoration-none" style="color:rgb(0, 0, 0);">Home</a></li>
                 <li class="breadcrumb-item active">BAMS(AYURVEDA)</li>
             </ol>
         </nav>
@@ -258,10 +258,11 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#" class="text-decoration-none">NMIMS Indore MBA Fees, NMAT Cut off</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none">NMAT Exam 2024: Registration Details</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none">KJ Somaiya Institute of Management</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none">JIET Medical College, Jodhpur</a></li>
+                            <?php if(!empty($blog)){
+                                foreach ($blog as $key => $value) {  ?>
+                                   <li class="mb-2"><a href="<?php echo base_url('homeservice/blog_description/'.$value['id']); ?>" class="text-decoration-none" style="color:blue;"><?php echo $value['name']; ?></a></li>
+                            <?php    }
+                            }  ?>
                         </ul>
                     </div>
                 </div>

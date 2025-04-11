@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="assets/logo_new.png" rel="shortcut icon" type="image/png">
-    <title>Mentor Education - Admission News</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-             body {
-     font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-}
+           
         .contact-header {
             border-bottom: 2px solid #dee2e6;
             padding-bottom: 10px;
@@ -161,174 +147,35 @@
          .card{
             box-shadow: 0px 0px 10px #adb5bd;
         }
-        /* footer */
-         .footer {
-            background-color: #0d6efd;
-            color: white;
-            padding: 60px 0 30px;
-        }
+         .map-container {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      position: relative;
+    }
 
-        .footer h5 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
+    .zoom-img {
+      transition: transform 0.2s ease;
+      cursor: zoom-in;
+    }
 
-        .footer ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer ul li {
-            margin-bottom: 15px;
-        }
-
-        .footer ul li a {
-            color: white;
-            text-decoration: none;
-            transition: padding-left 0.3s ease;
-        }
-
-        .footer ul li a:hover {
-            padding-left: 8px;
-            opacity: 0.8;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: white;
-            color: #0275d8;
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            margin-top: 40px;
-        }
-
-        .contact-info i {
-            margin-right: 10px;
-            width: 20px;
-        }
-
-        .newsletter-form .form-control {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            padding: 10px 15px;
-        }
-
-        .newsletter-form .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .newsletter-form .btn {
-            background-color: white;
-            color: #0275d8;
-            border: none;
-            padding: 10px 25px;
-        }
-
-        .newsletter-form .btn:hover {
-            background-color: #f8f9fa;
-        }
+    .zoomed {
+      cursor: zoom-out;
+    }
+       
     </style>
-</head>
-<body>
-    <div class="top-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col text-end">
-                    <a href="about.html" style="font-weight: 500;" class="text-dark text-decoration-none me-3">About Us</a>
-                    <a href="#" style="font-weight: 500;"  class="text-dark text-decoration-none me-3">Privacy Policy</a>
-                    <a href="#" style="font-weight: 500;" class="text-dark text-decoration-none">Terms and conditions</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand fw-bold" style="font-size:22px;" href="/"> <img src="assets/logo_new.png" alt="" width="90px" style="
-    background: white;
-    border-radius: 100px;
-    padding: 7px;
-    box-shadow: 0px 0px 10px #32a92b;
-"> &nbsp; &nbsp;MENTOR EDUCATION</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link"  style="font-weight:800"href="/"><i class="fas fa-home"></i> HOME</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"style="font-weight:800"  href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            COURSES
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
-                            <li><a class="dropdown-item" style="font-weight:500" href="bams-ayurveda.html">BAMS AYURVEDA</a></li>
-                            <li><a class="dropdown-item" style="font-weight:500" href="#">CPS & FCPS</a></li>
-                            <li><a class="dropdown-item" style="font-weight:500" href="#">DENTAL</a></li>
-                            <li><a class="dropdown-item" style="font-weight:500" href="#">ENGINEERING</a></li>
-                            <li><a class="dropdown-item" style="font-weight:500" href="#">HOMEOPATHY</a></li>
-                            <li><a class="dropdown-item" style="font-weight:500" href="#">MANAGEMENT</a></li>
-                            <li><a class="dropdown-item" style="font-weight:500" href="#">MEDICAL</a></li>
-                            <li><a class="dropdown-item" style="font-weight:500"href="#">MBBS IN NEPAL</a></li>
-                             <li><a class="dropdown-item" style="font-weight:500" href="#">NURSING</a></li>
-                              <li><a class="dropdown-item" style="font-weight:500" href="#">PHYSIOTHERAPY</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" style="font-weight:800" href="paid-counselling.html" id="counselingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            PAID COUNSELLING
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="counselingDropdown">
-                            <li><a class="dropdown-item" style="font-weight:500" href="cut_off_package.html">Counseling Option 1</a></li>
-                            <li><a class="dropdown-item" style="font-weight:500" href="neet_pg_package.html">NEET PG PACKAGE</a></li>
-                            <li><a class="dropdown-item" style="font-weight:500" href="#">NEET UG PACKAGE</a></li>
-                            <li><a class="dropdown-item" style="font-weight:500" href="#">AYUSH COUNSELLING</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="font-weight:800" href="admission_news.html">ADMISSION NEWS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="font-weight:800" href="contact.html">CONTACT US</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-     <div class="container mt-4">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Contact Us</li>
-            </ol>
-        </nav>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container my-4">
+     <div class=" container mt-4">
+        
+    
         <div class="row">
             <!-- Contact Information -->
             <div class="card col-lg-8">
+                <nav aria-label="breadcrumb">
+            <ol class=" breadcrumb">
+                <li class="breadcrumb-item"><a href="<?php echo base_url('/');?>" style="color:black;">Home</a></li>
+                <li class="breadcrumb-item active">Contact Us</li>
+            </ol>
+        </nav>
                 <h2 class="contact-header">Contact Us</h2>
                 
                 <div class="row">
@@ -375,25 +222,27 @@
                     <div class="col-md-6">
                         <div class="contact-form">
                             <h5>For Further Queries</h5>
-                            <form>
+                            <form id="contactsave">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Name *</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
                                 </div>
                                 
                                 <div class="mb-3">
                                     <label for="contact" class="form-label">Contact No *</label>
-                                    <input type="text" class="form-control" id="contact" placeholder="Enter your contact no">
+                                    <input type="text" class="form-control" id="contact" name="mobile" placeholder="Enter your contact no" maxlength="10" required
+       oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+       pattern="[0-9]{10}" title="Enter a 10-digit mobile number only">
                                 </div>
                                 
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter your Email Address">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email Address">
                                 </div>
                                 
                                 <div class="mb-3">
                                     <label for="message" class="form-label">Message</label>
-                                    <textarea class="form-control" id="message" rows="4" placeholder="Enter your Query Here!"></textarea>
+                                    <textarea class="form-control" id="message" rows="4" name="message" placeholder="Enter your Query Here!"></textarea>
                                 </div>
                                 
                                 <button type="submit" class="btn submit-btn">
@@ -408,12 +257,16 @@
                 <div class="row mt-4">
                     <div class="col-md-6">
                         <div class="map-container">
-                            <img src="https://via.placeholder.com/600x300?text=Pune+Office+Map" alt="Pune Office Map">
+                            <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.033348096294!2d73.85674361419842!3d18.520430374664073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c089bdb00405%3A0x8d1d5c10b1650cf!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1712800000000"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="map-container">
-                            <img src="https://via.placeholder.com/600x300?text=Bhopal+Office+Map" alt="Bhopal Office Map">
+                            <iframe
+         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.529980985864!2d85.1415323148877!3d25.59409498450873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f2a62814d4c32d%3A0x9fcb7ef1c9a7d20b!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1712811111111" 
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
@@ -431,145 +284,19 @@
                 <div class="recent-posts">
                     <h4>RECENT POSTS</h4>
                     <ul>
-                        <li>
-                            <a href="#">NMIMS Indore MBA Fees, NMAT Cut off, Placement, Package, Admission 2024</a>
+                        <?php if(!empty($blog)){
+                            foreach ($blog as $key => $value) {  ?>
+                            <li>
+                            <a href="<?php echo base_url('homeservice/blog_description/'.$value['id']); ?>" style="color:blue;"><?php echo $value['name']; ?></a>
                         </li>
-                        <li>
-                            <a href="#">NMAT Exam 2024: Registration, Exam Date, Syllabus, Seats, Fees, Admission</a>
-                        </li>
-                        <li>
-                            <a href="#">KJ Somaiya Institute of Management Cut off, MBA Fees, Package, Admission 2025</a>
-                        </li>
-                        <li>
-                            <a href="#">JET Medical College, Jodhpur Cut off, MBBS Fees, Admission 2024</a>
-                        </li>
-                        <li>
-                            <a href="#">AACCC Ayush PG Counselling 2024: Get All Details Here</a>
-                        </li>
+                    <?php        }
+                        }  ?>
+                        
+                        
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-      <footer class="footer">
-    <div class="container">
-        <div class="row">
-            <!-- Company Info -->
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5>About Company</h5>
-                <p>We are dedicated to providing the best educational counseling services to help students achieve their academic goals.</p>
-                <div class="social-links mt-4">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-
-            <!-- Quick Links -->
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5>Quick Links</h5>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Career Counseling</a></li>
-                    <li><a href="#">Admission Process</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <!-- Contact Info -->
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5>Contact Info</h5>
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Education Street, City, Country</p>
-                    <p><i class="fas fa-phone"></i> +91 831 923 3142</p>
-                    <p><i class="fas fa-envelope"></i> info@mentoreducation.com</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
-                </div>
-            </div>
-
-            <!-- Newsletter -->
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h5>Newsletter</h5>
-                <p>Subscribe to our newsletter for updates and news.</p>
-                <form class="">
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Enter email" aria-label="Enter email">
-                        <button class="btn btn-success" type="submit">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Footer Bottom -->
-        <div class="row footer-bottom">
-            <div class="col-md-6 text-center text-md-start">
-                <p class="mb-0">&copy; 2024 Mentor Education. All rights reserved.</p>
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-                <p class="mb-0">
-                    <a href="#" class="text-white me-3">Privacy Policy</a>
-                    <a href="#" class="text-white me-3">Terms & Conditions</a>
-                    <a href="#" class="text-white">FAQ</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Automatically show dropdown on hover
-        document.querySelectorAll('.nav-item.dropdown').forEach(function(dropdown) {
-            dropdown.addEventListener('mouseenter', function() {
-                const dropdownMenu = this.querySelector('.dropdown-menu');
-                if (dropdownMenu) {
-                    dropdownMenu.classList.add('show');
-                }
-            });
-
-            dropdown.addEventListener('mouseleave', function() {
-                const dropdownMenu = this.querySelector('.dropdown-menu');
-                if (dropdownMenu) {
-                    dropdownMenu.classList.remove('show');
-                }
-            });
-        });
-        // 
-          const whatsappIcon = document.createElement("div");
-whatsappIcon.innerHTML = `
-  <a href="https://wa.me/yourwhatsappnumber" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
-  </a>
-`;
-
-// Apply styles to keep it fixed
-whatsappIcon.style.position = "fixed";
-whatsappIcon.style.bottom = "20px";
-whatsappIcon.style.right = "20px";
-whatsappIcon.style.zIndex = "1000";
-
-// Append to the body
-document.body.appendChild(whatsappIcon);
-const callicon = document.createElement("div");
-callicon.innerHTML = `
-   <a href="tel:+918319233142" target="_blank">
-   <img width="40" height="40" src="assets/call.webp" alt="phone"/>
-  </a>
-`;
-
-// Apply styles to keep it fixed
-callicon.style.position = "fixed";
-callicon.style.bottom = "80px";
-callicon.style.right = "20px";
-callicon.style.zIndex = "1000";
-
-// Append to the body
-document.body.appendChild(callicon);
-    </script>
-</body>
-</html>
+   

@@ -112,6 +112,14 @@ public function blog_desc($where){
 	$query = $this->db->get();
 	return $query->row_array();
 }
+public function couselling($where){
+	$this->db->select('t1.*, t2.id as couselling, t2.name');
+	$this->db->from('couselling_blog t1');
+	$this->db->join('couselling t2', 't1.couselling_id = t2.id');
+	$this->db->where($where);
+	$query = $this->db->get();
+	return $query->row_array();
+}
 	
 }
 

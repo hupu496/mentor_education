@@ -1,17 +1,5 @@
     <style>
-        body {
-        font-family: "Roboto", sans-serif;
-        font-optical-sizing: auto;
-        }
-         .navbar-dark {
-        background-color: #0d6efd !important;
-    }
-    
-        .top-bar {
-            background-color: #f8f9fa;
-            padding: 5px 0;
-            font-size: 14px;
-        }
+       
         .article-card {
             transition: transform 0.2s;
         }
@@ -90,90 +78,7 @@
         .card{
             box-shadow: 0px 0px 10px #adb5bd;
         }
-        /* footer */
-           .footer {
-            background-color: #0d6efd;
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer h5 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
-
-        .footer ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer ul li {
-            margin-bottom: 15px;
-        }
-
-        .footer ul li a {
-            color: white;
-            text-decoration: none;
-            transition: padding-left 0.3s ease;
-        }
-
-        .footer ul li a:hover {
-            padding-left: 8px;
-            opacity: 0.8;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: white;
-            color: #0275d8;
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            margin-top: 40px;
-        }
-
-        .contact-info i {
-            margin-right: 10px;
-            width: 20px;
-        }
-
-        .newsletter-form .form-control {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            padding: 10px 15px;
-        }
-
-        .newsletter-form .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .newsletter-form .btn {
-            background-color: white;
-            color: #0275d8;
-            border: none;
-            padding: 10px 25px;
-        }
-
-        .newsletter-form .btn:hover {
-            background-color: #f8f9fa;
-        }
+       
     </style>
 </head>
 <body>
@@ -183,7 +88,7 @@
     <div class="container my-4">
           <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-decoration-none" style="color:black;">Home</a></li>
                 <li class="breadcrumb-item active">Term & Condition
 </li>
             </ol>
@@ -297,79 +202,15 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#" class="text-decoration-none">NMIMS Indore MBA Fees, NMAT Cut off</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none">NMAT Exam 2024: Registration Details</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none">KJ Somaiya Institute of Management</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none">JIET Medical College, Jodhpur</a></li>
+                           <?php if(!empty($blog)){
+                                foreach ($blog as $key => $value) {  ?>
+                                   <li class="mb-2"><a href="<?php echo base_url('homeservice/blog_description/'.$value['id']); ?>" class="text-decoration-none" style="color:blue;"><?php echo $value['name']; ?></a></li>
+                            <?php    }
+                            }  ?>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Automatically show dropdown on hover
-        document.querySelectorAll('.nav-item.dropdown').forEach(function(dropdown) {
-            dropdown.addEventListener('mouseenter', function() {
-                const dropdownMenu = this.querySelector('.dropdown-menu');
-                if (dropdownMenu) {
-                    dropdownMenu.classList.add('show');
-                }
-            });
-
-            dropdown.addEventListener('mouseleave', function() {
-                const dropdownMenu = this.querySelector('.dropdown-menu');
-                if (dropdownMenu) {
-                    dropdownMenu.classList.remove('show');
-                }
-            });
-        });
-    </script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let navLinks = document.querySelectorAll(".nav-link");
-
-        navLinks.forEach(link => {
-            link.addEventListener("click", function () {
-                // Remove active class from all nav-links
-                navLinks.forEach(nav => nav.classList.remove("active"));
-
-                // Add active class to the clicked link
-                this.classList.add("active");
-            });
-        });
-    });
-      const whatsappIcon = document.createElement("div");
-whatsappIcon.innerHTML = `
-  <a href="https://wa.me/yourwhatsappnumber" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
-  </a>
-`;
-
-// Apply styles to keep it fixed
-whatsappIcon.style.position = "fixed";
-whatsappIcon.style.bottom = "20px";
-whatsappIcon.style.right = "20px";
-whatsappIcon.style.zIndex = "1000";
-
-// Append to the body
-document.body.appendChild(whatsappIcon);
-
-const callicon = document.createElement("div");
-callicon.innerHTML = `
-   <a href="tel:+918319233142" target="_blank">
-   <img width="40" height="40" src="assets/call.webp" alt="phone"/>
-  </a>
-`;
-
-// Apply styles to keep it fixed
-callicon.style.position = "fixed";
-callicon.style.bottom = "80px";
-callicon.style.right = "20px";
-callicon.style.zIndex = "1000";
-
-// Append to the body
-document.body.appendChild(callicon);
-</script>
-
+     
